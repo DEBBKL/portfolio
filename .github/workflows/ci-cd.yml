@@ -1,0 +1,47 @@
+name: Validación y despliegue Portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  markdown-lint:
+    name: Validar Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Instalar markdownlint-cli
+        run: |
+          npm install -g markdownlint-cli
+      
+      - name: Ejecutar markdownlint
+        run: |
+          markdownlint '**/*.md'
+
+  deploy:
+    name: Desplegar en GitHub Pages
+    needs: markdown-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Configurar Node.js (si usas herramientas frontend)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependencias (si usas Tailwind u otras)
+        run: npm install
+
+      - name: Construir sitio (si tienes build)
+        run: npm run build
+        # Si no tienes build, elimina esta línea
+
+      - name: Desplegar a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # Cambia ./public por la carpeta que contiene tu sitio estático
