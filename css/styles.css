@@ -55,3 +55,26 @@ h2 {
     border-radius: 5px;
     font-weight: bold;
 }
+.main-menu {
+  background-color: #1e293b; /* un azul oscuro */
+  padding: 10px 20px;
+}
+
+.main-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu ul li a {
+  color: #f1f5f9; /* texto claro */
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif; /* si ya usas Urbanist */
+}
+
+.main-menu ul li a:hover {
+  color: #3b82f6; /* azul claro al pasar el ratón */
+}
