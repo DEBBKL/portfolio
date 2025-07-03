@@ -1,184 +1,143 @@
-/* Tipografías ya importadas en index.html */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Fuentes */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
   color: #333;
   line-height: 1.6;
 }
 
+/* Navegación */
+nav {
+  background-color: #004aad; /* color marca azul intenso */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #f2b90f; /* amarillo dorado marca */
+}
+
+/* Header principal */
 header {
-  background-color: #141c3a;
+  background-color: #002d72;
   color: white;
-  padding: 3rem 1rem;
   text-align: center;
+  padding: 3rem 1rem;
 }
 
 header h1 {
   font-family: 'Urbanist', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  margin-bottom: 0.2rem;
 }
 
 header p {
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: italic;
 }
 
+/* Secciones */
 section {
-  padding: 3rem 1.5rem;
   max-width: 900px;
-  margin: auto;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgb(0 0 0 / 0.05);
 }
 
-h2 {
+section h2 {
   font-family: 'Urbanist', sans-serif;
   font-size: 2rem;
+  color: #004aad;
   margin-bottom: 1rem;
-  color: #141c3a;
-  border-left: 6px solid #0066cc;
-  padding-left: 12px;
+  border-bottom: 2px solid #f2b90f;
+  padding-bottom: 0.5rem;
 }
 
-ul {
-  list-style: none;
+/* Artículos dentro de experiencia */
+section#experience article {
+  margin-bottom: 1.5rem;
+}
+
+section#experience article h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.4rem;
+  color: #002d72;
+  margin-bottom: 0.25rem;
+}
+
+section#experience article p em {
+  font-style: normal;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+section#experience ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: #444;
+}
+
+section#skills ul,
+section#certifications ul,
+section#projects ul {
+  list-style-type: none;
   padding-left: 0;
 }
 
-li {
-  background-color: #fff;
-  margin-bottom: 0.8rem;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+section#skills ul li,
+section#certifications ul li,
+section#projects ul li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
 }
 
+/* Enlaces proyectos y contacto */
 a {
-  color: #0066cc;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-  color: #004a99;
-  outline: none;
-}
-
-footer {
-  background-color: #eee;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  section {
-    padding: 2rem 1rem;
-  }
-}
-
-/* Navegación */
-nav {
-  position: sticky;
-  top: 0;
-  background-color: #ffffffcc;
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0.8rem 1rem;
-  margin: 0;
-  list-style: none;
-  transition: max-height 0.3s ease;
-  overflow: hidden;
-}
-
-nav li {
-  margin: 0 1rem;
-}
-
-nav a {
-  color: #141c3a;
+  color: #004aad;
   text-decoration: none;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  transition: color 0.3s ease;
 }
 
-nav a:hover,
-nav a:focus {
-  color: #0066cc;
-  outline: none;
+a:hover {
+  color: #f2b90f;
+  text-decoration: underline;
 }
 
-nav a.active {
-  color: #0066cc;
-  border-bottom: 2px solid #0066cc;
-  padding-bottom: 2px;
-}
-
-/* Botón hamburguesa para móvil */
-nav .menu-toggle {
-  display: none;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  cursor: pointer;
-  width: 30px;
-  height: 25px;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-nav .menu-toggle span {
-  display: block;
-  height: 3px;
-  background-color: #141c3a;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Mostrar menú toggle en móvil */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    max-height: 0;
-    padding: 0;
-  }
-
-  nav ul.open {
-    max-height: 500px; /* suficiente para mostrar todos los items */
-    padding: 0.8rem 1rem;
-  }
-
-  nav li {
-    margin: 0.5rem 0;
-  }
-
-  nav .menu-toggle {
-    display: flex;
-  }
+/* Pie de página */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 1rem 0;
+  background: #f0f0f0;
+  margin-top: 3rem;
 }
 
