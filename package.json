@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Bienvenida/o a mi portfolio profesional como Analista de Ciberseguridad, con enfoque en Blue Team.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEBBKL/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DEBBKL/portfolio/issues"
+  },
+  "homepage": "https://github.com/DEBBKL/portfolio#readme",
+  "keywords": [],
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
+
