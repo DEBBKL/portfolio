@@ -2,152 +2,131 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Déborah Loisel – Portfolio Profesional</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@700&family=Inter&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    <nav>
-  <ul>
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#skills">Habilidades</a></li>
-    <li><a href="#experience">Experiencia</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="https://github.com/DEBBKL" target="_blank">GitHub</a></li>
-  </ul>
-</nav>
-    header, section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    header {
-      text-align: center;
-      background: #141c3a;
-      color: white;
-    }
-    h1, h2 {
-      font-family: 'Urbanist', sans-serif;
-      color: #141c3a;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #eee;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Déborah Loisel - Portfolio Profesional</title>
+  <!-- Fuentes Urbanist y Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Urbanist&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
+  <nav>
+    <ul>
+      <li><a href="#about" class="active">Sobre mí</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#certifications">Certificaciones</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
   <header>
     <h1>Déborah Loisel</h1>
-    <p>Analista de Ciberseguridad · Blue Team · SOC · Threat Hunting</p>
-    <p>
-      <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a> · 
-      <a href="https://www.linkedin.com/in/deborah-loisel/" target="_blank">LinkedIn</a> · 
-      <a href="https://github.com/DEBBKL" target="_blank">GitHub</a>
-    </p>
+    <p>Analista de Ciberseguridad | Blue Team | Gestión de Vulnerabilidades</p>
   </header>
 
   <section id="about">
     <h2>Sobre mí</h2>
     <p>
-      Soy una profesional junior en ciberseguridad con experiencia en entornos de defensa (Blue Team), detección de amenazas, análisis de eventos y mitigación de ataques. He trabajado con herramientas como Snort, Fail2Ban, Wazuh y ZAP. Me especializo en la implementación de controles defensivos y en la documentación técnica orientada a la acción.
+      Soy una profesional en ciberseguridad con experiencia práctica en análisis de vulnerabilidades, monitorización y respuesta a incidentes en entornos Linux y Windows.  
+      Apasionada por el Blue Team, busco proteger activos digitales mediante el uso de herramientas open source y la aplicación de metodologías reconocidas como OWASP y MITRE ATT&CK.  
+      Destaco por mi capacidad analítica, detalle en la documentación y ganas de aprender y crecer continuamente en un sector dinámico y crítico.
     </p>
   </section>
 
-  <section id="skills">
-    <h2>Habilidades técnicas</h2>
-    <ul>
-      <li>🔐 IDS/IPS (Snort, Wazuh)</li>
-      <li>📈 SIEM & análisis de eventos (Event Viewer, Wazuh)</li>
-      <li>🧰 Mitigación: Fail2Ban, reglas Snort</li>
-      <li>🕷️ Escaneo de vulnerabilidades (OWASP ZAP)</li>
-      <li>🐧 Kali Linux, Debian, bash scripting</li>
-      <li>🐍 Python, HTML/CSS/JS</li>
-    </ul>
+  <section id="experience">
+    <h2>Experiencia Profesional</h2>
+
+    <article>
+      <h3>Analista de Seguridad (junior) - Canary Drop</h3>
+      <p><em>Junio 2024 - Junio 2025</em></p>
+      <ul>
+        <li>Realización de auditorías de seguridad en aplicaciones web siguiendo OWASP Top 10.</li>
+        <li>Análisis y gestión de vulnerabilidades detectadas, priorizando y recomendando mitigaciones.</li>
+        <li>Uso de Kali Linux para tareas de escaneo, enumeración y explotación controlada.</li>
+        <li>Monitorización de eventos con Wazuh y generación de alertas ante posibles incidentes.</li>
+        <li>Documentación técnica y elaboración de informes para equipos técnicos y de gestión.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Prácticas y Formación en Seguridad Informática</h3>
+      <p><em>2023 - 2024</em></p>
+      <ul>
+        <li>Implementación y configuración de IDS/IPS con Snort para detección temprana de ataques.</li>
+        <li>Análisis forense digital básico en sistemas Windows y Linux para recuperación de evidencias.</li>
+        <li>Automatización de tareas de seguridad con scripts en Python y Bash.</li>
+        <li>Estudio y aplicación de metodologías de threat hunting y respuesta a incidentes.</li>
+      </ul>
+    </article>
   </section>
 
-  <section id="experience">
-    <h2>Experiencia y formación</h2>
+  <section id="skills">
+    <h2>Habilidades</h2>
     <ul>
-      <li><strong>Var Group Iberia</strong> – Analyst (candidato en proceso)</li>
-      <li><strong>Certificación:</strong> Fortinet FCF – 88/100 (junio 2025)</li>
-      <li><strong>Educación:</strong> Grado en Psicología (UNED), 3er año</li>
-      <li><strong>Formaciones:</strong> SEPE – Seguridad informática nivel 3</li>
+      <li><strong>Sistemas Operativos:</strong> Kali Linux, Ubuntu, Windows</li>
+      <li><strong>Herramientas de Seguridad:</strong> Kali Tools, OWASP ZAP, Snort, Wazuh, Fail2Ban</li>
+      <li><strong>Lenguajes de Programación y Scripting:</strong> Python, Bash, PowerShell básico</li>
+      <li><strong>Metodologías:</strong> OWASP, MITRE ATT&CK, Gestión de vulnerabilidades</li>
+      <li><strong>Control de versiones:</strong> Git, GitHub</li>
+      <li><strong>Servicios en la nube y redes:</strong> Configuración básica VPN, gestión DNS</li>
     </ul>
   </section>
 
   <section id="projects">
-    <h2>Proyectos destacados</h2>
+    <h2>Proyectos Destacados</h2>
     <ul>
-      <li><a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank">X-OSINT en Kali (instalación y solución de errores)</a></li>
-      <li><a href="https://github.com/DEBBKL/fail2ban-ssh-blue" target="_blank">Mitigación de fuerza bruta SSH con Fail2Ban</a></li>
-      <li><a href="https://github.com/DEBBKL/ids-snort" target="_blank">Configuración IDS Snort y pruebas de detección</a></li>
-      <li><a href="https://github.com/DEBBKL/informes-seguridad" target="_blank">Informes técnicos de análisis de seguridad</a></li>
+      <li>
+        <a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank" rel="noopener">
+          X-OSINT en Kali Linux
+        </a><br />
+        Documentación completa y resolución de incidencias para la instalación y uso de la suite OSINT X-OSINT en Kali Linux, incluyendo configuración y automatización.
+      </li>
+      <li>
+        <a href="https://github.com/DEBBKL/portfolio" target="_blank" rel="noopener">
+          Portfolio Personal
+        </a><br />
+        Desarrollo y despliegue de este sitio web personal con HTML, CSS y GitHub Pages para mostrar experiencia y proyectos.
+      </li>
+      <li>
+        <a href="https://github.com/DEBBKL" target="_blank" rel="noopener">
+          Otros repositorios GitHub
+        </a><br />
+        Proyectos relacionados con seguridad informática, scripting y automatización para auditorías y monitorización.
+      </li>
     </ul>
   </section>
 
-  <section id="cv">
-    <h2>CV actualizado</h2>
-    <p>
-      <a href="https://www.canva.com/design/DAGj57CPhkQ/d6E3OeYTvB3ar0GgM86DLw/view" target="_blank">
-        📄 Ver mi currículum en Canva
-      </a>
-    </p>
+  <section id="certifications">
+    <h2>Certificaciones</h2>
+    <ul>
+      <li>
+        <strong>Fundamentos de Ciberseguridad</strong> – SEPE  
+        <br />Certificación obtenida tras completar formación oficial en conceptos básicos de seguridad informática.
+      </li>
+      <li>
+        <strong>Introducción al Paisaje de Amenazas 3.0 (FCFT)</strong> – 2025  
+        <br />Curso certificado que profundiza en amenazas cibernéticas actuales y tendencias de ataque.
+      </li>
+      <li>
+        <strong>OWASP Seguridad Web</strong> – En curso  
+        <br />Formación práctica orientada a la identificación y mitigación de vulnerabilidades web siguiendo OWASP Top 10.
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contacto</h2>
+    <p>Email: <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/deborah-loisel/" target="_blank" rel="noopener">linkedin.com/in/deborah-loisel</a></p>
+    <p>GitHub: <a href="https://github.com/DEBBKL" target="_blank" rel="noopener">github.com/DEBBKL</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Déborah Loisel · Portfolio profesional</p>
+    <p>© 2025 Déborah Loisel. Todos los derechos reservados.</p>
   </footer>
 
-<script>
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a');
-
-  window.addEventListener('scroll', () => {
-    let current = "";
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
-  });
-</script>
-
-  
 </body>
 </html>
+
