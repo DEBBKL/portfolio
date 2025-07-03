@@ -39,6 +39,48 @@ Soy Déborah Loisel, profesional junior de ciberseguridad en constante formació
 🔗 LinkedIn: [linkedin.com/in/deborah-loisel](https://www.linkedin.com/in/deborah-loisel)
 
 ---
+# Portfolio Personal - Actualización Julio 2025
+
+## Descripción de la Actualización
+
+En esta actualización se ha implementado un nuevo componente de interfaz para mejorar la experiencia de usuario al mostrar el Currículum Vitae directamente en el portfolio.
+
+### Cambios realizados:
+
+- **Implementación de un modal (ventana emergente)** para mostrar el contenido del currículum sin necesidad de salir de la página principal.
+- Añadido un enlace en el menú de navegación para abrir el modal de CV.
+- Desarrollo de la estructura HTML del modal, incluyendo secciones como perfil profesional, experiencia, formación, habilidades técnicas y datos de contacto.
+- Estilos CSS específicos para el modal, con diseño responsivo, fondo semi-transparente y aspecto acorde con la identidad visual del portfolio.
+- JavaScript para controlar la apertura y cierre del modal, incluyendo cierre mediante el botón "X" y al hacer clic fuera del área del contenido.
+- Corrección de la estructura CSS para evitar errores de anidación que afectaban el estilo general.
+
+### Beneficios:
+
+- Mejor accesibilidad al currículum sin navegación adicional.
+- Interfaz limpia y profesional que mantiene al usuario en la misma página.
+- Código modular y fácilmente extensible para futuras mejoras.
+
+---
+
+## Cómo usarlo
+
+1. Desde el menú de navegación, hacer clic en el enlace **"Ver CV"** para abrir el modal con el currículum.
+2. Para cerrar el modal, pulsar el botón **"×"** en la esquina superior derecha o hacer clic fuera del área del modal.
+
+---
+
+## Próximos pasos
+
+- Añadir contenido dinámico para facilitar actualizaciones del CV sin modificar el código.
+- Implementar soporte para dispositivos móviles con ajustes responsivos adicionales.
+- Integrar enlaces para descarga directa del CV en formato PDF.
+
+---
+
+**Autor:** Déborah Loisel Santana  
+**Fecha:** Julio 2025
+
+---
 
 ## ⚠️ Aviso
 
