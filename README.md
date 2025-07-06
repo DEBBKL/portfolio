@@ -5,6 +5,17 @@ Bienvenida/o a mi portfolio profesional como Analista de Ciberseguridad, con enf
 🌐 Visita la versión web: [debbkl.github.io/portfolio](https://debbkl.github.io/portfolio)
 
 ---
+## Estructura del proyecto
+
+- `index.html`: archivo principal con el contenido y estructura del portfolio.
+- `css/styles.css`: estilos CSS para la presentación visual.
+- `js/scripts.js`: código JavaScript para funcionalidades interactivas (como el modal del CV).
+- `images/`: carpeta para imágenes utilizadas en el portfolio.
+- `README.md`: documentación y guía del proyecto.
+
+El JavaScript está separado en un archivo externo para facilitar mantenimiento y escalabilidad.
+
+---
 
 ## 📂 Contenido del Portfolio
 
