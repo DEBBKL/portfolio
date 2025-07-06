@@ -21,7 +21,7 @@ body {
 }
 
 header {
-  background: var(--c-primary);
+  background: var(--c-blue); /* #255C99 */
   color: white;
   text-align: center;
   padding: 1.5rem 1rem;
