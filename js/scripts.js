@@ -4,7 +4,7 @@ const cvModal = document.getElementById('cv-modal');
 
 openCvBtn.addEventListener('click', function(event) {
   event.preventDefault();
-  cvModal.style.display = 'flex';
+  cvModal.style.display = 'flex';  // ¡Aquí debe ser flex para que funcione el modal!
 });
 
 closeCvBtn.addEventListener('click', function() {
@@ -12,7 +12,7 @@ closeCvBtn.addEventListener('click', function() {
 });
 
 window.addEventListener('click', function(event) {
-  if (event.target === cvModal) {
+  if(event.target === cvModal) {
     cvModal.style.display = 'none';
   }
 });
