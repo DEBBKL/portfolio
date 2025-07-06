@@ -18,7 +18,7 @@ function openModal(e) {
   loader.style.display = 'block';
   cvIframe.style.display = 'none';
 
-  // Esperar a que el PDF cargue para ocultar loader
+  // Espera a que el iframe cargue el PDF
   cvIframe.onload = () => {
     loader.style.display = 'none';
     cvIframe.style.display = 'block';
