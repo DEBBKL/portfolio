@@ -1,51 +1,67 @@
-/* Fuentes Urbanist y Inter */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+:root {
+  --c-primary: #B3001B;
+  --c-dark:    #262626;
+  --c-blue:    #255C99;
+  --c-light:   #7EA3CC;
+  --c-accent:  #CCAD8F;
+  --bg:        #f9f9f9;
+  --text:      #262626;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Urbanist', sans-serif;
-  color: #007acc; /* Color de marca */
-  margin-bottom: 0.5em;
-}
-
-header {
-  background-color: #007acc;
-  color: white;
-  padding: 1rem 2rem;
-  text-align: center;
-}
-
-nav {
-  background-color: #004a80;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
+* {
+  box-sizing: border-box;
   margin: 0; padding: 0;
 }
 
-nav ul li {
-  margin: 0 15px;
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-nav ul li a {
+header {
+  background: var(--c-primary);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+header h1 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+nav {
+  background: var(--c-dark);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav li {
+  margin: 0.5rem 1rem;
+}
+
+nav a {
   color: white;
   text-decoration: none;
-  padding: 15px 0;
-  display: block;
+  font-weight: 600;
+  padding: 0.5rem;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  border-bottom: 2px solid #00bfff;
+nav a.active,
+nav a:hover {
+  color: var(--c-accent);
 }
 
 main {
@@ -54,75 +70,94 @@ main {
   padding: 0 1rem;
 }
 
-section {
-  margin-bottom: 3rem;
+.section {
+  margin-bottom: 2.5rem;
 }
 
-ul {
-  padding-left: 20px;
+.section h2 {
+  font-family: 'Urbanist', sans-serif;
+  color: var(--c-primary);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--c-accent);
+  padding-bottom: 0.3rem;
 }
 
-footer {
-  background-color: #007acc;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.section ul {
+  padding-left: 1.2rem;
 }
 
-/* Botón para abrir CV */
+.section ul li {
+  margin-bottom: 0.6rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.skill-column h3 {
+  color: var(--c-blue);
+  margin-bottom: 0.5rem;
+}
+
+.skill-column ul {
+  list-style: disc inside;
+  padding-left: 0;
+}
+
 .btn-cv {
-  background-color: #007acc;
+  display: block;
+  margin: 1.5rem auto;
+  background: var(--c-blue);
   color: white;
   border: none;
-  padding: 12px 25px;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 0.8rem 1.6rem;
   font-family: 'Urbanist', sans-serif;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin: 1rem auto;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .btn-cv:hover {
-  background-color: #005f9e;
+  background: var(--c-primary);
+}
+
+footer {
+  text-align: center;
+  background: var(--c-dark);
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
 /* Modal */
 .modal {
   position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
   background: white;
   padding: 2rem;
-  border-radius: 8px;
   max-width: 700px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
+  border-radius: 6px;
   position: relative;
 }
 
 .close-btn {
   position: absolute;
-  top: 12px;
-  right: 15px;
-  font-size: 2rem;
+  top: 12px; right: 16px;
+  font-size: 1.8rem;
   cursor: pointer;
-  user-select: none;
-}
-
-.close-btn:hover {
-  color: #007acc;
 }
