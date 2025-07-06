@@ -1,115 +1,128 @@
-/* Tipografía urbana para títulos y Inter para textos */
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Urbanist:wght@700&display=swap');
-
-:root {
-  --color-marca: #005f73; /* Color principal de la marca, cambia según tu branding */
-  --color-fondo: #f0f4f8;
-  --color-texto: #333;
-  --color-acento: #0a9396;
-  --espacio-base: 1rem;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Fuentes Urbanist y Inter */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
   line-height: 1.6;
-  padding: var(--espacio-base);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Urbanist', sans-serif;
+  color: #007acc; /* Color de marca */
+  margin-bottom: 0.5em;
 }
 
 header {
+  background-color: #007acc;
+  color: white;
+  padding: 1rem 2rem;
   text-align: center;
-  padding-bottom: var(--espacio-base);
-  border-bottom: 2px solid var(--color-marca);
-  margin-bottom: var(--espacio-base);
 }
 
-header h1 {
-  font-family: 'Urbanist', sans-serif;
-  font-weight: 700;
-  color: var(--color-marca);
-  font-size: 2.5rem;
+nav {
+  background-color: #004a80;
 }
 
-header p {
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
-}
-
-.menu {
+nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: var(--espacio-base);
-  padding-left: 0;
+  margin: 0; padding: 0;
 }
 
-.menu li a {
-  text-decoration: none;
-  color: var(--color-marca);
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+nav ul li {
+  margin: 0 15px;
 }
 
-.menu li a:hover {
-  background-color: var(--color-acento);
+nav ul li a {
   color: white;
+  text-decoration: none;
+  padding: 15px 0;
+  display: block;
 }
 
-.section {
+nav ul li a:hover,
+nav ul li a.active {
+  border-bottom: 2px solid #00bfff;
+}
+
+main {
   max-width: 900px;
-  margin: 0 auto 3rem auto;
+  margin: 2rem auto;
   padding: 0 1rem;
 }
 
-.section h2 {
-  font-family: 'Urbanist', sans-serif;
-  font-weight: 700;
-  color: var(--color-marca);
-  margin-bottom: 1rem;
-  font-size: 2rem;
+section {
+  margin-bottom: 3rem;
 }
 
-.section ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.section ul li {
-  margin-bottom: 0.5rem;
-}
-
-article h3 {
-  font-family: 'Urbanist', sans-serif;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-acento);
+ul {
+  padding-left: 20px;
 }
 
 footer {
+  background-color: #007acc;
+  color: white;
   text-align: center;
-  font-size: 0.9rem;
-  padding: var(--espacio-base);
-  border-top: 2px solid var(--color-marca);
-  color: var(--color-marca);
+  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .menu {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Botón para abrir CV */
+.btn-cv {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 1rem auto;
+}
+
+.btn-cv:hover {
+  background-color: #005f9e;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px 30px;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 8px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #007acc;
 }
