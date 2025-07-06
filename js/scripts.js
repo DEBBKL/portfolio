@@ -4,7 +4,7 @@ const cvModal = document.getElementById('cv-modal');
 
 openCvBtn.addEventListener('click', function(event) {
   event.preventDefault();
-  cvModal.style.display = 'flex'; // con flex para centrar modal
+  cvModal.style.display = 'flex';
 });
 
 closeCvBtn.addEventListener('click', function() {
@@ -16,3 +16,4 @@ window.addEventListener('click', function(event) {
     cvModal.style.display = 'none';
   }
 });
+
