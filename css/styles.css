@@ -168,18 +168,19 @@ footer {
 
 /* MODAL */
 .modal {
+  display: none;
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
 .modal-content {
-  background: var(--white);
+  background: white;
   padding: 2rem;
   max-width: 700px;
   width: 90%;
@@ -187,6 +188,25 @@ footer {
   overflow-y: auto;
   border-radius: 6px;
   position: relative;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #54b6db; /* color azul marca */
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Loader giratorio para el modal */
