@@ -3,141 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio Déborah Loisel</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Portfolio - Déborah Loisel</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter&family=Urbanist&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-
   <header>
-    <nav>
-      <ul class="menu">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#certificaciones">Certificaciones</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#formacion">Formación</a></li>
-        <li><a href="#idiomas">Idiomas</a></li>
-        <li><a href="#otros-datos">Otros datos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
     <h1>Déborah Loisel</h1>
-    <p>Especialista en Ciberseguridad | Blue Team | SOC</p>
+    <p>Analista de Ciberseguridad - Blue Team & SOC</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="#about" class="active">Sobre mí</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#certifications">Certificaciones</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#" id="open-cv">Currículum</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <section id="sobre-mi" class="section">
-      <h2>🧑‍💻 Sobre mí</h2>
+    <section id="about">
+      <h2>Sobre mí</h2>
       <p>
-        Soy Déborah Loisel, una profesional apasionada por la ciberseguridad con especialización en defensa y análisis dentro de equipos Blue Team y SOC.
-        Mi enfoque se centra en la protección de infraestructuras críticas y la implementación de estrategias de seguridad proactivas. A lo largo de mi carrera, he adquirido experiencia en:
+        Soy Déborah Loisel, una profesional apasionada por la ciberseguridad con
+        especialización en defensa y análisis dentro de equipos Blue Team y SOC.
+        Tengo experiencia en análisis de vulnerabilidades, gestión de incidentes y
+        monitorización avanzada de seguridad. Mi objetivo es proteger activos
+        digitales y contribuir a entornos más seguros.
       </p>
-      <ul>
-        <li><strong>Análisis de vulnerabilidades:</strong> Identificación y evaluación de debilidades en sistemas y redes.</li>
-        <li><strong>Gestión de incidentes:</strong> Coordinación y respuesta ante eventos de seguridad.</li>
-        <li><strong>Monitorización avanzada:</strong> Uso de herramientas SIEM y EDR para la detección temprana de amenazas.</li>
-        <li><strong>Implementación de políticas de seguridad:</strong> Desarrollo de normativas y procedimientos para garantizar la integridad de los sistemas.</li>
-      </ul>
-      <p>Mi objetivo es contribuir a entornos digitales más seguros, aplicando soluciones innovadoras y adaptadas a las necesidades específicas de cada organización.</p>
+      <p>
+        Puedes ver más detalles de mi formación y trayectoria en
+        <a href="https://www.linkedin.com/in/deborah-loisel/" target="_blank"
+          >mi perfil de LinkedIn</a
+        >
+        y explorar mis proyectos en
+        <a href="https://github.com/DEBBKL" target="_blank">mi GitHub</a>.
+      </p>
     </section>
 
-    <section id="experiencia" class="section">
-      <h2>💼 Experiencia Profesional</h2>
+    <section id="experience">
+      <h2>Experiencia Profesional</h2>
 
       <article>
-        <h3>Analista de Ciberseguridad - Canary Drop (2023 - 2024)</h3>
+        <h3>Analista de Ciberseguridad - Canary Drop</h3>
+        <p>2023 - 2024</p>
         <ul>
           <li>Monitoreo y análisis de eventos de seguridad en entornos Windows y Linux.</li>
-          <li>Implementación y gestión de IDS con Snort y soluciones SIEM.</li>
-          <li>Investigación y mitigación de amenazas como fuerza bruta y malware.</li>
-          <li>Elaboración de informes técnicos para facilitar la toma de decisiones.</li>
+          <li>Implementación y gestión de IDS con Snort y soluciones SIEM básicas.</li>
+          <li>Investigación y mitigación de amenazas de fuerza bruta y malware.</li>
+          <li>Elaboración de informes técnicos y checklist de acciones prioritarias.</li>
         </ul>
       </article>
 
       <article>
-        <h3>Prácticas en Seguridad Informática (2022)</h3>
+        <h3>Prácticas en Seguridad Informática</h3>
+        <p>2022</p>
         <ul>
-          <li>Auditorías de vulnerabilidades web.</li>
-          <li>Configuración de entornos Kali Linux para pruebas y análisis forense.</li>
-          <li>Uso de técnicas OSINT para recopilación de información.</li>
+          <li>Realización de auditorías básicas de vulnerabilidades web.</li>
+          <li>Configuración de entornos Kali Linux para pruebas de penetración y análisis.</li>
+          <li>Uso de herramientas de recopilación de información y escaneo de redes.</li>
         </ul>
       </article>
     </section>
 
-    <section id="certificaciones" class="section">
-      <h2>🎓 Certificaciones</h2>
+    <section id="certifications">
+      <h2>Certificaciones</h2>
       <ul>
-        <li>Introduction to the Threat Landscape 3.0 (SPANISH) - FCF, 2025</li>
-        <li>Curso SEPE Nivel 3 - Seguridad Informática</li>
-        <li>Prácticas Profesionales en Seguridad Informática</li>
+        <li>
+          <strong>Introduction to the Threat Landscape 3.0 (SPANISH) - FCF</strong>
+          <br />
+          Finalizado en Junio 2025 con calificación 88/100. Curso introductorio
+          sobre amenazas actuales en ciberseguridad.
+        </li>
+        <li>
+          <strong>Curso SEPE Nivel 3 - Seguridad Informática</strong>
+          <br />
+          Formación en conceptos avanzados de seguridad en redes y sistemas.
+        </li>
+        <li>
+          <strong>Prácticas Profesionales en Seguridad Informática</strong>
+          <br />
+          Aplicación práctica de técnicas de auditoría y defensa en entornos reales.
+        </li>
       </ul>
     </section>
 
-    <section id="habilidades" class="section">
-      <h2>🛠️ Habilidades Técnicas</h2>
+    <section id="projects">
+      <h2>Proyectos Destacados</h2>
       <ul>
-        <li>Desarrollo Web: WordPress, Prestashop, WooCommerce, Elementor</li>
-        <li>Sistemas Operativos: Linux (Ubuntu, Kali), Windows Server y Cliente</li>
-        <li>Seguridad y Forense: Kali Linux, Snort IDS, análisis de logs, gestión de cortafuegos</li>
-        <li>Marketing Digital y Analítica: Google Analytics, SEO/SEM</li>
-        <li>Diseño Gráfico: Adobe Photoshop, dominio de tableta gráfica</li>
-        <li>Herramientas CMS y Diseño: Figma, Canva</li>
-        <li>Ofimática Avanzada: Word, Excel (tablas dinámicas), PowerPoint, Access</li>
+        <li>
+          <a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank"
+            >X-OSINT Kali Blue Team</a
+          >
+          – Documentación y automatización para instalación y solución de incidencias
+          en herramientas de recopilación OSINT en Kali Linux.
+        </li>
+        <li>
+          <a href="https://github.com/DEBBKL/portfolio" target="_blank">Portfolio Personal</a>
+          – Repositorio con el código fuente de este portfolio profesional.
+        </li>
+        <li>
+          <a href="https://github.com/DEBBKL/blue-team-tools" target="_blank">Blue Team Tools</a>
+          – Recopilación de herramientas y scripts para defensa en entornos Blue Team.
+        </li>
+        <li>
+          <a href="https://github.com/DEBBKL/snort-config" target="_blank">Snort IDS Configuración</a>
+          – Configuración personalizada y reglas para detección avanzada con Snort.
+        </li>
       </ul>
     </section>
 
-    <section id="proyectos" class="section">
-      <h2>📂 Proyectos Destacados</h2>
-      <ul>
-        <li><strong>X-OSINT Kali Blue Team (2025):</strong> Documentación y automatización para instalación y solución de incidencias en herramientas OSINT en Kali Linux.</li>
-        <li><strong>Portfolio Personal (2025):</strong> Código fuente de este portfolio.</li>
-        <li><strong>Blue Team Tools (2024):</strong> Herramientas y scripts para defensa Blue Team.</li>
-        <li><strong>Snort IDS Configuración (2023):</strong> Reglas personalizadas para detección avanzada.</li>
-      </ul>
+    <section id="contact">
+      <h2>Contacto</h2>
+      <p>Correo electrónico: <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a></p>
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/deborah-loisel/" target="_blank"
+          >https://www.linkedin.com/in/deborah-loisel/</a
+        >
+      </p>
+      <p>
+        GitHub:
+        <a href="https://github.com/DEBBKL" target="_blank">https://github.com/DEBBKL</a>
+      </p>
     </section>
 
-    <section id="formacion" class="section">
-      <h2>🧑‍🎓 Formación Académica</h2>
-      <ul>
-        <li>Seguridad Informática - Fauca 2025 (en curso)</li>
-        <li>Marketing Digital y Posicionamiento Web - Fauca 2024</li>
-        <li>Content Management Systems y E-commerce - Fauca 2024</li>
-        <li>Cámara de Comercio de Las Palmas - Auxiliar Administrativo (Garantía Juvenil) 2023</li>
-        <li>Grado en Psicología (114 créditos aprobados) - UNED 2022</li>
-        <li>Bachillerato - 2018, Escuela Superior de Arte y Diseño LPGC</li>
-      </ul>
-    </section>
-
-    <section id="idiomas" class="section">
-      <h2>🌐 Idiomas</h2>
-      <ul>
-        <li>Inglés: C1 (Traducción e interpretación)</li>
-        <li>Francés: Nivel básico</li>
-      </ul>
-    </section>
-
-    <section id="otros-datos" class="section">
-      <h2>🧩 Otros Datos de Interés</h2>
-      <ul>
-        <li>Carnet de conducir B (desde 2018)</li>
-        <li>Vehículo propio</li>
-        <li>Experiencia en ventas y promociones</li>
-      </ul>
-    </section>
-
-    <section id="contacto" class="section">
-      <h2>📬 Contacto</h2>
-      <p>Email: <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/deborah-loisel" target="_blank" rel="noopener noreferrer">linkedin.com/in/deborah-loisel</a></p>
-      <p>GitHub: <a href="https://github.com/DEBBKL" target="_blank" rel="noopener noreferrer">github.com/DEBBKL</a></p>
-    </section>
+    <button id="open-cv" class="btn-cv">Ver Currículum Completo</button>
   </main>
 
+  <!-- Modal para CV -->
+  <div id="cv-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-cv" class="close-btn">&times;</span>
+      <h2>Currículum Vitae - Déborah Loisel Santana</h2>
+
+      <section>
+        <h3>Perfil Profesional</h3>
+        <p>Habilidades de empatía y comunicación efectiva con análisis metódico de riesgos, aptitudes clave para roles en concienciación en ciberseguridad y prevención de ingeniería social.</p>
+      </section>
+
+      <section>
+        <h3>Idiomas</h3>
+        <ul>
+          <li>Inglés: C1 (Traducción e interpretación)</li>
+          <li>Francés: Nivel básico</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Habilidades Técnicas</h3>
+        <ul>
+          <li>Desarrollo Web: Wordpress, Prestashop, WooCommerce, Elementor</li>
+          <li>Sistemas Operativos: Linux (Ubuntu, Kali), Windows Server y Cliente</li>
+          <li>Seguridad y Forense: Kali Linux, Snort IDS, análisis de logs, gestión de cortafuegos, antivirus/antimalware</li>
+          <li>Marketing Digital y Analítica: Google Analytics, SEO/SEM</li>
+          <li>Diseño Gráfico: Adobe Photoshop, dominio de tableta gráfica</li>
+          <li>Herramientas CMS y Diseño: Figma, Canva</li>
+          <li>Ofimática Avanzada: Microsoft Word, Excel (tablas dinámicas), PowerPoint, Access</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Experiencia Laboral</h3>
+        <article>
+          <h4>Recepcionista en EsthetikLab Medicina Estética</h4>
+          <p><em>2020</em></p>
+          <ul>
+            <li>Atención al cliente y organización de agenda.</li>
+            <li>Optimización de equipo informático.</li>
+          </ul>
+        </article>
+        <article>
+          <h4>Auxiliar de floristería, Floristería Ramos</h4>
+          <p><em>2024</em></p>
+          <ul>
+            <li>Atención al cliente y registro en caja.</li>
+            <li>Elaboración de ramos y envíos a domicilio.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h3>Formación Académica</h3>
+        <ul>
+          <li>Bachillerato - 2018, Escuela Superior de Arte y Diseño LPGC</li>
+          <li>Grado en Psicología (114 créditos aprobados) - UNED 2022</li>
+          <li>Cámara de Comercio de Las Palmas - Auxiliar Administrativo (Garantía Juvenil) 2023</li>
+          <li>Marketing Digital y Posicionamiento Web - Fauca 2024</li>
+          <li>Seguridad Informática - Fauca 2025 (en curso)</li>
+          <li>Content Management Systems y E-commerce - Fauca 2024</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Otros Datos de Interés</h3>
+        <ul>
+          <li>Carnet de conducir B (desde 2018)</li>
+          <li>Vehículo propio</li>
+          <li>Experiencia en ventas y promociones</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Contacto</h3>
+        <p>Email: <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/deborah-loisel" target="_blank" rel="noopener noreferrer">linkedin.com/in/deborah-loisel</a></p>
+        <p>GitHub: <a href="https://github.com/DEBBKL" target="_blank" rel="noopener noreferrer">github.com/DEBBKL</a></p>
+      </section>
+    </div>
+  </div>
+
   <footer>
-    <p>© 2025 Déborah Loisel - Todos los derechos reservados</p>
+    <p>© 2025 Déborah Loisel. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
