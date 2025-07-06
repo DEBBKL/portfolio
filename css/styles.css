@@ -161,3 +161,8 @@ footer {
   font-size: 1.8rem;
   cursor: pointer;
 }
+
+/* Ajuste: espacio entre secciones */
+section {
+  margin: 3rem 0; /* 3rem arriba y abajo */
+}
