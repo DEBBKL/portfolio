@@ -134,26 +134,29 @@
       <p>GitHub: <a href="https://github.com/DEBBKL" target="_blank">github.com/DEBBKL</a></p>
     </section>
 
-    <button class="btn-cv" id="open-cv">Ver Currículum Completo</button>
-  </main>
+   <!-- BOTÓN PARA ABRIR MODAL DEL CV -->
+<button id="open-cv" class="btn-cv">
+  Ver CV
+</button>
 
-  <!-- MODAL CURRÍCULUM -->
- <div class="modal" id="cv-modal">
+<!-- MODAL DEL CURRÍCULUM -->
+<div class="modal" id="cv-modal">
   <div class="modal-content">
     <span class="close-btn" id="close-cv">&times;</span>
     <h2>Currículum Vitae</h2>
 
-  <!-- Loader mientras se carga el PDF -->
+    <!-- Loader mientras se carga el PDF -->
     <div id="cv-loader" class="loader"></div>
-    
-    <!-- Embebido PDF -->
+
+    <!-- Iframe del CV -->
     <iframe
-  src="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf"
-  width="100%"
-  height="600px"
-  style="border: none;"
->
-  <p>Tu navegador no puede mostrar PDFs.
+      id="cv-iframe"
+      src="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf"
+      width="100%"
+      height="600px"
+      style="border: none; display: none;"
+    >
+      <p>Tu navegador no puede mostrar PDFs.
         <a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">Descárgalo aquí</a>.
       </p>
     </iframe>
