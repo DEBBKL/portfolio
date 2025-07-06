@@ -10,27 +10,28 @@
   />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+  
 <body>
   <header>
     <h1>Déborah Loisel</h1>
     <p>Analista de Ciberseguridad - Blue Team & SOC</p>
   </header>
 
- <nav>
-  <ul>
-    <li><a href="#about"       target="_blank">Sobre mí</a></li>
-    <li><a href="#experience"  target="_blank">Experiencia</a></li>
-    <li><a href="#certifications" target="_blank">Certificaciones</a></li>
-    <li><a href="#skills"      target="_blank">Habilidades</a></li>
-    <li><a href="#projects"    target="_blank">Proyectos</a></li>
-    <li><a href="#education"   target="_blank">Formación</a></li>
-    <li><a href="#contact"     target="_blank">Contacto</a></li>
-    <li><a href="#" id="open-cv-link" target="_blank">Currículum</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="#about" class="active">Sobre mí</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#certifications">Certificaciones</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#education">Formación</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#" id="open-cv-link">Currículum</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <section id="about">
+    <section id="about" class="section">
       <h2>Sobre mí</h2>
       <p>
         Soy Déborah Loisel, una profesional apasionada por la ciberseguridad con
@@ -49,7 +50,7 @@
       </p>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="section">
       <h2>Experiencia Profesional</h2>
 
       <article>
@@ -74,7 +75,7 @@
       </article>
     </section>
 
-    <section id="certifications">
+    <section id="certifications" class="section">
       <h2>Certificaciones</h2>
       <ul>
         <li>
@@ -122,7 +123,7 @@
       </div>
     </section>
     
-    <section id="projects">
+    <section id="projects" class="section">
       <h2>Proyectos Destacados</h2>
       <ul>
         <li>
@@ -166,9 +167,9 @@
   </main>
 
   <!-- Modal para CV -->
-  <div id="cv-modal" class="modal">
+  <div class="modal" id="cv-modal">
     <div class="modal-content">
-      <span id="close-cv" class="close-btn">&times;</span>
+      <span class="close-btn" id="close-cv">&times;</span>
       <h2>Currículum Vitae - Déborah Loisel Santana</h2>
 
       <section>
