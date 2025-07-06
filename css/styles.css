@@ -1,39 +1,42 @@
 :root {
-  --c-blue:    #255C99;
-  --c-dark:    #262626;
-  --c-primary: #B3001B;
-  --c-light:   #7EA3CC;
-  --c-accent:  #CCAD8F;
-  --bg:        #f9f9f9;
-  --text:      #262626;
+  --blue-light:  #54b6db;
+  --blue-dark:   #2097bd;
+  --black:       #000000;
+  --white:       #ffffff;
+  --gray-light:  #f2f2f2;
 }
 
+/* Reset básico */
 * {
   box-sizing: border-box;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--gray-light);
+  color: var(--black);
   line-height: 1.6;
 }
 
+/* HEADER */
 header {
-  background: var(--c-blue);
-  color: white;
+  background: var(--blue-dark);
+  color: var(--white);
   text-align: center;
   padding: 2rem 1rem;
 }
 
-.hero {
+header .hero {
   margin-top: 1rem;
   font-style: italic;
+  color: var(--white);
 }
 
+/* NAVEGACIÓN */
 nav {
-  background: var(--c-dark);
+  background: var(--black);
 }
 
 nav ul {
@@ -48,7 +51,7 @@ nav li {
 }
 
 nav a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-weight: 600;
   padding: 0.5rem;
@@ -56,9 +59,12 @@ nav a {
 
 nav a.active,
 nav a:hover {
-  color: var(--c-accent);
+  background: var(--blue-light);
+  color: var(--black);
+  border-radius: 4px;
 }
 
+/* MAIN Y SECCIONES */
 main {
   max-width: 900px;
   margin: 2rem auto;
@@ -71,8 +77,8 @@ section {
 
 section h2 {
   font-family: 'Urbanist', sans-serif;
-  color: var(--c-primary);
-  border-bottom: 3px solid var(--c-accent);
+  color: var(--blue-dark);
+  border-bottom: 3px solid var(--blue-light);
   padding-bottom: 0.3rem;
   margin-bottom: 1rem;
 }
@@ -85,6 +91,7 @@ section ul li {
   margin-bottom: 0.6rem;
 }
 
+/* HABILIDADES GRID */
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -92,7 +99,7 @@ section ul li {
 }
 
 .skill-column h3 {
-  color: var(--c-light);
+  color: var(--blue-light);
   margin-bottom: 0.5rem;
 }
 
@@ -101,11 +108,12 @@ section ul li {
   padding-left: 0;
 }
 
+/* BOTÓN CV */
 .btn-cv {
   display: block;
   margin: 1.5rem auto;
-  background: var(--c-light);
-  color: var(--c-dark);
+  background: var(--blue-light);
+  color: var(--black);
   border: none;
   padding: 0.8rem 1.6rem;
   font-family: 'Urbanist', sans-serif;
@@ -116,13 +124,15 @@ section ul li {
 }
 
 .btn-cv:hover {
-  background: var(--c-primary);
+  background: var(--blue-dark);
+  color: var(--white);
 }
 
+/* FOOTER */
 footer {
   text-align: center;
-  background: var(--c-dark);
-  color: white;
+  background: var(--black);
+  color: var(--white);
   padding: 1rem;
   margin-top: 2rem;
 }
@@ -132,7 +142,7 @@ footer {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: none;
   justify-content: center;
   align-items: center;
@@ -140,7 +150,7 @@ footer {
 }
 
 .modal-content {
-  background: white;
+  background: var(--white);
   padding: 2rem;
   max-width: 700px;
   width: 90%;
@@ -155,4 +165,5 @@ footer {
   top: 12px; right: 16px;
   font-size: 1.8rem;
   cursor: pointer;
+  color: var(--black);
 }
