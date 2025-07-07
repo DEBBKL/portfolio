@@ -19,6 +19,16 @@
     <div class="hero">
       <p>¡Bienvenido a mi portfolio! Explora mis proyectos, experiencia y habilidades.</p>
     </div>
+
+    <button id="theme-toggle">Tema</button>
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  });
+</script>
+    
   </header>
 
   <!-- NAVEGACIÓN -->
