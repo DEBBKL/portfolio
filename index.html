@@ -1,57 +1,40 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio - Déborah Loisel</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter&family=Urbanist:wght@700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>{{ page.title | default: site.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Urbanist:wght@700&display=swap" rel="stylesheet" />
+  <!-- CSS con variables -->
+  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}" />
+  {{ page.head }}
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <h1>Déborah Loisel</h1>
-    <p>Analista de Ciberseguridad – Red & Blue Team</p>
+    <h1>{{ site.author.name }}</h1>
+    <p>{{ site.author.subtitle }}</p>
     <div class="hero">
-      <p>¡Bienvenido a mi portfolio! Explora mis proyectos, experiencia y habilidades.</p>
+      <p>{{ site.hero_text }}</p>
     </div>
-
-    <button id="theme-toggle">Tema</button>
-<script>
-  const btn = document.getElementById('theme-toggle');
-  btn.addEventListener('click', () => {
-    const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-  });
-</script>
-    
+    <button id="theme-toggle" aria-label="Cambiar tema">🌓</button>
   </header>
 
-  <!-- NAVEGACIÓN -->
+ <!-- NAVEGACIÓN -->
   <nav>
     <ul>
-      <li><a href="#about" class="active">Sobre mí</a></li>
-      <li><a href="#experience">Experiencia</a></li>
-      <li><a href="#certifications">Certificaciones</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#education">Formación</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      {% for item in site.nav %}
+      <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
       <li>
-  <a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">
-     Currículum
-  </a>
-</li>
-
+        <a href="{{ '/assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf' | relative_url }}" target="_blank">Currículum</a>
+      </li>
     </ul>
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <main>
+   <main class="container">
     <section id="about">
       <h2>Sobre mí</h2>
       <p>
@@ -172,30 +155,49 @@
     </iframe>
   </div>
 </div>
-
-  <footer>
-    <p>© 2025 Déborah Loisel. Todos los derechos reservados.</p>
-  </footer>
-
-<div id="google_translate_element"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es',
-      includedLanguages: 'en,fr,de,it,pt,es',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
   
 </script>
 <script type="text/javascript" 
   src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 
+
+     <!-- GOOGLE TRANSLATE -->
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,fr,de,it,pt,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
   <!-- Scripts -->
 <script src="js/modal.js" defer></script>
 <script src="js/nav.js" defer></script>
 <script src="js/scroll.js" defer></script>
+<!-- MODO OSCURO SCRIPT -->
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', () => {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    });
+  </script>
+
+ <footer>
+    <p>© 2025 Déborah Loisel. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
