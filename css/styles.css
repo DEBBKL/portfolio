@@ -193,10 +193,15 @@ footer {
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.0); /* comienza transparente */
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeBg 0.4s ease forwards;
+}
+
+@keyframes fadeBg {
+  to { background-color: rgba(0, 0, 0, 0.6); }
 }
 
 .modal-content {
@@ -208,6 +213,8 @@ footer {
   overflow-y: auto;
   border-radius: 6px;
   position: relative;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);  /* <- sombra añadida */
+  animation: fadeIn 0.4s ease forwards; /* ← animación fade-in */
 }
 
 /* Loader giratorio para el modal */
@@ -226,13 +233,19 @@ footer {
   100% { transform: rotate(360deg); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 /* Bloquear scroll del fondo */
 body.modal-open {
   overflow: hidden;
 }
 
 .close-btn {
-  color: rgba(0,0,0,0.7);
+  cursor: pointer;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
@@ -249,5 +262,13 @@ body.modal-open {
 @media (min-width: 601px) {
   section {
     animation: pulseBorder 6s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 400px) {
+  .loader {
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
   }
 }
