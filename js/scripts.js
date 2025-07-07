@@ -12,13 +12,20 @@ if (openCvLink) {
 }
 
 function openModal(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
+
   cvModal.style.display = 'flex';
   document.body.classList.add('modal-open');
+
+  // Reinicia la animación si se reabre rápidamente
+  cvModal.classList.remove('fade-out');
+  void cvModal.offsetWidth; // ← fuerza reflow
+  cvModal.classList.add('fade-in');
+
+  // Mostrar loader y ocultar iframe
   loader.style.display = 'block';
   cvIframe.style.display = 'none';
 
-  // Espera a que el iframe cargue el PDF
   cvIframe.onload = () => {
     loader.style.display = 'none';
     cvIframe.style.display = 'block';
@@ -26,12 +33,14 @@ function openModal(e) {
 }
 
 function closeModal() {
-  cvModal.style.display = 'none';
-  document.body.classList.remove('modal-open');
+  // Transición de salida
+  cvModal.classList.remove('fade-in');
+  cvModal.classList.add('fade-out');
+
+  cvModal.addEventListener('animationend', function handler() {
+    cvModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    cvModal.removeEventListener('animationend', handler);
+  });
 }
 
-openCvBtn.addEventListener('click', openModal);
-closeCvBtn.addEventListener('click', closeModal);
-window.addEventListener('click', e => {
-  if (e.target === cvModal) closeModal();
-});
