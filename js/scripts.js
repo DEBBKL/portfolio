@@ -63,11 +63,12 @@ async function loadGitHubRepos() {
 
   try {
     const response = await fetch('https://api.github.com/users/DEBBKL/repos');
+    console.log('Respuesta GitHub:', response);
     if (!response.ok) throw new Error('Error cargando repositorios');
 
     let repos = await response.json();
+    console.log('Repos:', repos);
 
-    // Opcional: filtrar para mostrar solo repos no forks y activos
     repos = repos.filter(repo => !repo.fork && !repo.archived);
 
     if (repos.length === 0) {
@@ -75,7 +76,7 @@ async function loadGitHubRepos() {
       return;
     }
 
-    container.innerHTML = ''; // Limpiar texto de carga
+    container.innerHTML = '';
 
     repos.forEach(repo => {
       const card = document.createElement('article');
@@ -98,7 +99,10 @@ async function loadGitHubRepos() {
 
   } catch (error) {
     container.innerHTML = `<p>Error cargando proyectos: ${error.message}</p>`;
+    console.error(error);
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadGitHubRepos);
+document.addEventListener('DOMContentLoaded', () => {
+  loadGitHubRepos();
+});
