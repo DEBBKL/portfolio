@@ -1,47 +1,32 @@
-name: Build and Deploy Tailwind Portfolio
+name: Build Jekyll and deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-ruby@v1
         with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Tailwind CSS
-        run: npm run build  # <-- Esto debe estar definido en tu package.json
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          ruby-version: '3.x'
+      - uses: actions/cache@v3
         with:
-          path: ./dist  # Cambia esto si tu output es otro (ej. build, public...)
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      - run: bundle install
+      - run: bundle exec jekyll build
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./_site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
