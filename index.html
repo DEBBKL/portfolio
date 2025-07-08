@@ -215,40 +215,37 @@
 <script>
 async function loadGitHubRepos() {
   const container = document.getElementById('projects-container');
-  container.innerHTML = ''; // limpio contenido previo
+  container.innerHTML = ''; // limpiar contenido previo
 
   try {
     const response = await fetch('https://api.github.com/users/DEBBKL/repos');
-    if (!response.ok) throw new Error('No se pudieron cargar los repositorios');
+    if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
+
     const repos = await response.json();
 
+    repos
+      .filter(repo => !repo.fork && !repo.private)
+      .forEach(repo => {
+        const card = document.createElement('div');
+        card.classList.add('project-card');
+        card.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description || 'Sin descripción.'}</p>
+          <a href="${repo.html_url}" target="_blank">Ver en GitHub</a>
+        `;
+        container.appendChild(card);
+      });
+
     if (repos.length === 0) {
-      container.innerHTML = '<p>No hay repositorios disponibles.</p>';
-      return;
+      container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
     }
-
-    repos.forEach(repo => {
-      const card = document.createElement('article');
-      card.className = 'project-card';
-
-      card.innerHTML = `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
-        <p class="project-description">${repo.description || 'Sin descripción.'}</p>
-        <div class="project-meta">
-          <span>⭐ ${repo.stargazers_count}</span>
-          <span>🛠 ${repo.language || 'N/A'}</span>
-          <span>Última actualización: ${new Date(repo.updated_at).toLocaleDateString()}</span>
-        </div>
-      `;
-
-      container.appendChild(card);
-    });
-
   } catch (error) {
-    container.innerHTML = `<p>Error cargando repositorios: ${error.message}</p>`;
+    console.error('Error al cargar repositorios:', error);
+    container.innerHTML = '<p>Error al cargar los proyectos desde GitHub.</p>';
   }
 }
 
+// Ejecutar la función cuando se cargue el documento
 document.addEventListener('DOMContentLoaded', loadGitHubRepos);
 </script>
   
