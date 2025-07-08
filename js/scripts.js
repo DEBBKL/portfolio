@@ -57,40 +57,50 @@ function closeModal() {
   });
 }
 
+<script>
 async function loadGitHubRepos() {
   const container = document.getElementById('projects-container');
-  container.innerHTML = ''; // limpio por si acaso
+  const filter = document.getElementById('filter')?.value || 'newest';
+  container.innerHTML = '';
 
   try {
     const response = await fetch('https://api.github.com/users/DEBBKL/repos');
-    if (!response.ok) throw new Error('Error al obtener repos');
-    const repos = await response.json();
+    if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
 
-    if (repos.length === 0) {
-      container.innerHTML = '<p>No hay repositorios disponibles.</p>';
-      return;
-    }
+    let repos = await response.json();
 
+    // Filtrar
+    repos = repos.filter(repo => !repo.fork && !repo.private);
+
+    // Ordenar según filtro seleccionado
+    repos.sort((a, b) => {
+      if (filter === 'newest') return new Date(b.created_at) - new Date(a.created_at);
+      if (filter === 'oldest') return new Date(a.created_at) - new Date(b.created_at);
+      if (filter === 'az') return a.name.localeCompare(b.name);
+      if (filter === 'za') return b.name.localeCompare(a.name);
+      return 0;
+    });
+
+    // Pintar
     repos.forEach(repo => {
-      const card = document.createElement('article');
-      card.className = 'project-card';
-
+      const card = document.createElement('div');
+      card.classList.add('project-card');
       card.innerHTML = `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
-        <p class="project-description">${repo.description || 'Sin descripción.'}</p>
-        <div class="project-meta">
-          <span>⭐ ${repo.stargazers_count}</span>
-          <span>🛠 ${repo.language || 'N/A'}</span>
-          <span>Última actualización: ${new Date(repo.updated_at).toLocaleDateString()}</span>
-        </div>
+        <h3>${repo.name}</h3>
+        <p>${repo.description || 'Sin descripción.'}</p>
+        <a href="${repo.html_url}" target="_blank">Ver en GitHub</a>
       `;
-
       container.appendChild(card);
     });
 
+    if (repos.length === 0) {
+      container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
+    }
   } catch (error) {
-    container.innerHTML = `<p>Error cargando repositorios: ${error.message}</p>`;
+    console.error('Error al cargar repositorios:', error);
+    container.innerHTML = '<p>Error al cargar los proyectos desde GitHub.</p>';
   }
 }
 
 document.addEventListener('DOMContentLoaded', loadGitHubRepos);
+</script>
