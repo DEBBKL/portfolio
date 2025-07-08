@@ -59,37 +59,28 @@ function closeModal() {
 
 async function loadGitHubRepos() {
   const container = document.getElementById('projects-container');
-  container.innerHTML = '<p>Cargando proyectos...</p>';
+  container.innerHTML = ''; // limpio por si acaso
 
   try {
     const response = await fetch('https://api.github.com/users/DEBBKL/repos');
-    console.log('Respuesta GitHub:', response);
-    if (!response.ok) throw new Error('Error cargando repositorios');
-
-    let repos = await response.json();
-    console.log('Repos:', repos);
-
-    repos = repos.filter(repo => !repo.fork && !repo.archived);
+    if (!response.ok) throw new Error('Error al obtener repos');
+    const repos = await response.json();
 
     if (repos.length === 0) {
-      container.innerHTML = '<p>No hay proyectos para mostrar.</p>';
+      container.innerHTML = '<p>No hay repositorios disponibles.</p>';
       return;
     }
-
-    container.innerHTML = '';
 
     repos.forEach(repo => {
       const card = document.createElement('article');
       card.className = 'project-card';
 
       card.innerHTML = `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" aria-label="Ver repositorio ${repo.name}">
-          ${repo.name}
-        </a>
-        <p class="project-description">${repo.description || 'Sin descripción'}</p>
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
+        <p class="project-description">${repo.description || 'Sin descripción.'}</p>
         <div class="project-meta">
           <span>⭐ ${repo.stargazers_count}</span>
-          <span>🍴 ${repo.forks_count}</span>
+          <span>🛠 ${repo.language || 'N/A'}</span>
           <span>Última actualización: ${new Date(repo.updated_at).toLocaleDateString()}</span>
         </div>
       `;
@@ -98,11 +89,8 @@ async function loadGitHubRepos() {
     });
 
   } catch (error) {
-    container.innerHTML = `<p>Error cargando proyectos: ${error.message}</p>`;
-    console.error(error);
+    container.innerHTML = `<p>Error cargando repositorios: ${error.message}</p>`;
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadGitHubRepos();
-});
+document.addEventListener('DOMContentLoaded', loadGitHubRepos);
