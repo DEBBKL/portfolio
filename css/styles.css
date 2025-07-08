@@ -272,3 +272,45 @@ body.modal-open {
     border-width: 4px;
   }
 }
+
+.header-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: 'Urbanist', sans-serif;
+  user-select: none;
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--white);
+}
+
+header h2 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  opacity: 0.8;
+  margin: 0;
+  font-style: italic;
+  color: var(--white);
+}
+
+.separator {
+  font-weight: 600;
+  font-size: 1.4rem;
+  opacity: 0.6;
+  user-select: none;
+  color: var(--white);
+}
+
+.role {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--blue-light);
+  margin: 0;
+  white-space: nowrap;
+}
