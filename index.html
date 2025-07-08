@@ -153,6 +153,15 @@
 
    <section id="projects">
   <h2>Proyectos</h2>
+     <div class="project-filter">
+  <label for="filter">Ordenar por:</label>
+  <select id="filter" onchange="loadGitHubRepos()">
+    <option value="newest">Más recientes</option>
+    <option value="oldest">Más antiguos</option>
+    <option value="az">Nombre (A-Z)</option>
+    <option value="za">Nombre (Z-A)</option>
+  </select>
+</div>
   <div id="projects-container" class="projects-grid">
     <!-- Aquí se insertarán las tarjetas -->
   </div>
