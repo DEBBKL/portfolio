@@ -314,3 +314,61 @@ header h2 {
   margin: 0;
   white-space: nowrap;
 }
+
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--white);
+  border: 2px solid var(--blue-light);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  box-shadow: var(--section-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--section-shadow-hover);
+  border-color: var(--blue-dark);
+  outline: none;
+}
+
+.project-card a {
+  font-weight: 700;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.1rem;
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+.project-card a:hover,
+.project-card a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+.project-description {
+  margin-top: 0.6rem;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.project-meta {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--blue-light);
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+}
