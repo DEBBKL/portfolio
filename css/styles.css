@@ -490,3 +490,24 @@ header h2 {
     font-size: 1.1rem;
   }
 }
+
+.skills-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.skills-section > div {
+  flex: 1;
+  padding: 2rem;
+}
+
+.red-team {
+  background-color: #d32f2f; /* rojo fuerte */
+}
+
+.blue-team {
+  background-color: #1976d2; /* azul fuerte */
+}
