@@ -436,7 +436,6 @@ header h2 {
 }
 
 /* Íconos sociales */
-/* Íconos sociales */
 .social-links {
   display: flex;
   align-items: center;
@@ -492,79 +491,64 @@ header h2 {
 }
 
 /* Contenedor general para habilidades */
-.skills-section {
-  max-width: 900px;
-  margin: 3rem auto;
+#skills-section {
+  max-width: 1000px;
+  margin: 4rem auto;
   padding: 1rem;
+}
+
+.section-title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-shadow: 0 0 8px #2979ff66;
+}
+
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
-/* Cada columna de habilidades */
 .skill-column {
-  background: #111; /* fondo oscuro para contraste */
+  background-color: #1e1e1e;
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow:
-    0 0 10px rgba(0,0,0,0.5),
-    inset 0 0 15px rgba(255,255,255,0.05);
-  color: #eee;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  transition: transform 0.3s ease;
 }
 
-/* Títulos con fuente Urbanist y efecto neón general */
-.skill-column h2 {
+.skill-column:hover {
+  transform: translateY(-6px);
+}
+
+.skill-column h3 {
   font-family: 'Urbanist', sans-serif;
-  font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  letter-spacing: 1.2px;
-  color: #fff;
-  text-shadow:
-    0 0 5px #fff;
-  transition: text-shadow 0.3s ease;
 }
 
-/* Efecto neón específico para Red Team */
-.red-team h2 {
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #ff1744,
-    0 0 20px #ff1744,
-    0 0 30px #ff1744;
+.red-team h3 {
   color: #ff1744;
+  text-shadow: 0 0 8px #ff174466;
 }
 
-/* Efecto neón específico para Blue Team */
-.blue-team h2 {
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #2979ff,
-    0 0 20px #2979ff,
-    0 0 30px #2979ff;
+.blue-team h3 {
   color: #2979ff;
+  text-shadow: 0 0 8px #2979ff66;
 }
 
-/* Listado de habilidades */
 .skill-column ul {
-  list-style: disc inside;
-  padding-left: 0;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  color: #ddd;
+  padding-left: 1.2rem;
+  list-style: disc;
 }
 
-.skill-column ul li {
+.skill-column li {
   margin-bottom: 0.6rem;
-}
-
-/* Responsive: columnas en móvil a una columna */
-@media (max-width: 600px) {
-  .skills-section {
-    grid-template-columns: 1fr;
-  }
+  line-height: 1.6;
 }
