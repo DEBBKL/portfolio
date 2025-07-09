@@ -436,14 +436,33 @@ header h2 {
 }
 
 /* Íconos sociales */
+/* Íconos sociales */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .social-links a {
-  margin-left: 0.75rem;
-  font-size: 1.3rem;
-  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform var(--transition);
 }
+
+.social-links a img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: transform var(--transition), filter var(--transition);
+}
+
 .social-links a:hover {
   transform: scale(1.2);
+}
+
+.social-links a:hover img {
+  filter: invert(70%) sepia(100%) saturate(300%) hue-rotate(200deg); /* efecto hover opcional */
 }
 
 /* Animaciones */
