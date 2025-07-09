@@ -491,23 +491,31 @@ header h2 {
   }
 }
 
-.skills-section {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  color: white;
-  text-align: center;
+/* Sección habilidades - títulos con Urbanist y neón */
+.skills-section h2 {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1.2px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff;
+  transition: text-shadow 0.3s ease;
 }
 
-.skills-section > div {
-  flex: 1;
-  padding: 2rem;
+.red-team h2 {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #ff1744,
+    0 0 20px #ff1744,
+    0 0 30px #ff1744;
 }
 
-.red-team {
-  background-color: #d32f2f; /* rojo fuerte */
-}
-
-.blue-team {
-  background-color: #1976d2; /* azul fuerte */
+.blue-team h2 {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #2979ff,
+    0 0 20px #2979ff,
+    0 0 30px #2979ff;
 }
