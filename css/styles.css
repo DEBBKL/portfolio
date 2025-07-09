@@ -490,65 +490,86 @@ header h2 {
   }
 }
 
-/* Contenedor general para habilidades */
+/* --- Sección Habilidades --- */
 #skills-section {
   max-width: 1000px;
   margin: 4rem auto;
-  padding: 1rem;
+  padding: 0 1rem;
 }
-
-.section-title {
+#skills-section .section-title {
   font-family: 'Urbanist', sans-serif;
   font-size: 2.2rem;
   text-align: center;
-  margin-bottom: 2rem;
-  color: #ffffff;
-  text-shadow: 0 0 8px #2979ff66;
+  margin-bottom: 2.5rem;
+  color: var(--black);
 }
-
-.skills-grid {
+#skills-section .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-.skill-column {
-  background-color: #1e1e1e;
-  padding: 1.5rem;
+/* Reset de fondo genérico para no heredar negro */
+#skills-section .skill-column {
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+/* Columnas Red Team / Blue Team */
+#skills-section .skill-column {
+  padding: 1.8rem;
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-  color: #e0e0e0;
+  color: #fff;
   transition: transform 0.3s ease;
 }
 
-.skill-column:hover {
-  transform: translateY(-6px);
+#skills-section .skill-column:hover {
+  transform: translateY(-5px);
 }
 
-.skill-column h3 {
+/* Red Team */
+#skills-section .red-team {
+  background: linear-gradient(135deg, #b71c1c, #f44336);
+}
+
+#skills-section .red-team h3 {
   font-family: 'Urbanist', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
+  text-shadow: 0 0 8px #ff1744;
 }
 
-.red-team h3 {
-  color: #ff1744;
-  text-shadow: 0 0 8px #ff174466;
+/* Blue Team */
+#skills-section .blue-team {
+  background: linear-gradient(135deg, #0d47a1, #42a5f5);
 }
 
-.blue-team h3 {
-  color: #2979ff;
-  text-shadow: 0 0 8px #2979ff66;
+#skills-section .blue-team h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px #2979ff;
 }
 
-.skill-column ul {
+/* Listado */
+#skills-section .skill-column ul {
+  list-style: disc inside;
   font-family: 'Inter', sans-serif;
-  padding-left: 1.2rem;
-  list-style: disc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
-.skill-column li {
+#skills-section .skill-column li {
   margin-bottom: 0.6rem;
-  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #skills-section .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
