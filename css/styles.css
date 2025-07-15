@@ -589,7 +589,7 @@ header h2 {
 #contact {
   padding: 4rem 1.5rem;
   background-color: var(--background-secondary, #f9f9f9);
-  color: var(--text-color, #1a1a1a);
+  color: #54b6db;
   font-family: 'Inter', sans-serif;
   border-radius: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
