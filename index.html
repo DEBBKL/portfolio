@@ -347,40 +347,136 @@
 <script src="js/scroll.js" defer></script>
 
 <script>
-async function loadGitHubRepos() {
-  const container = document.getElementById('projects-container');
-  container.innerHTML = ''; // limpiar contenido previo
+  // Elementos DOM para modal CV
+  const openCvBtn  = document.getElementById('open-cv');
+  const openCvLink = document.getElementById('open-cv-link');
+  const closeCvBtn = document.getElementById('close-cv');
+  const cvModal    = document.getElementById('cv-modal');
+  const cvIframe   = document.getElementById('cv-iframe');
+  const loader     = document.getElementById('cv-loader');
 
-  try {
-    const response = await fetch('https://api.github.com/users/DEBBKL/repos');
-    if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
+  // Añadir eventos para abrir/cerrar modal
+  if (openCvBtn) openCvBtn.addEventListener('click', openModal);
+  if (openCvLink) openCvLink.addEventListener('click', openModal);
+  if (closeCvBtn) closeCvBtn.addEventListener('click', closeModal);
 
-    const repos = await response.json();
+  // Cerrar modal con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cvModal.style.display === 'flex') {
+      closeModal();
+    }
+  });
 
-    repos
-      .filter(repo => !repo.fork && !repo.private)
-      .forEach(repo => {
+  // Cerrar modal clicando fuera del contenido (fondo)
+  if (cvModal) {
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Cuando se carga el iframe del CV, ocultar loader y mostrar iframe
+  if (cvIframe) {
+    cvIframe.onload = () => {
+      loader.style.display = 'none';
+      cvIframe.style.display = 'block';
+    };
+  }
+
+  // Función para abrir modal CV
+  function openModal(e) {
+    if (e) e.preventDefault();
+
+    cvModal.style.display = 'flex';
+    document.body.classList.add('modal-open');
+
+    // Reiniciar animación para fade-in
+    cvModal.classList.remove('fade-out');
+    void cvModal.offsetWidth; // fuerza reflow para reiniciar animación
+    cvModal.classList.add('fade-in');
+
+    // Mostrar loader y ocultar iframe hasta que se cargue
+    loader.style.display = 'block';
+    cvIframe.style.display = 'none';
+  }
+
+  // Función para cerrar modal CV con animación fade-out
+  function closeModal() {
+    cvModal.classList.remove('fade-in');
+    cvModal.classList.add('fade-out');
+
+    // Al terminar la animación, ocultar modal y limpiar clases
+    cvModal.addEventListener('animationend', function handler() {
+      cvModal.style.display = 'none';
+      document.body.classList.remove('modal-open');
+      cvModal.removeEventListener('animationend', handler);
+    });
+  }
+
+  // Función para cargar repositorios públicos desde GitHub y mostrarlos
+  async function loadGitHubRepos() {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    const filter = document.getElementById('filter')?.value || 'newest';
+
+    try {
+      const response = await fetch('https://api.github.com/users/DEBBKL/repos');
+      if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
+
+      let repos = await response.json();
+
+      // Filtrar repos que no son forks ni privados
+      repos = repos.filter(repo => !repo.fork && !repo.private);
+
+      // Ordenar según filtro seleccionado
+      repos.sort((a, b) => {
+        switch(filter) {
+          case 'newest':
+            return new Date(b.created_at) - new Date(a.created_at);
+          case 'oldest':
+            return new Date(a.created_at) - new Date(b.created_at);
+          case 'az':
+            return a.name.localeCompare(b.name);
+          case 'za':
+            return b.name.localeCompare(a.name);
+          default:
+            return 0;
+        }
+      });
+
+      if (repos.length === 0) {
+        container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
+        return;
+      }
+
+      // Crear y añadir tarjetas para cada repositorio
+      repos.forEach(repo => {
         const card = document.createElement('div');
         card.classList.add('project-card');
+
+        // Asigna data-tech si tienes tecnología, aquí lo dejo vacío (puedes añadir según tu lógica)
+        // card.setAttribute('data-tech', 'javascript,css'); 
+
         card.innerHTML = `
           <h3>${repo.name}</h3>
           <p>${repo.description || 'Sin descripción.'}</p>
-          <a href="${repo.html_url}" target="_blank">Ver en GitHub</a>
+          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
         `;
+
         container.appendChild(card);
       });
-
-    if (repos.length === 0) {
-      container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
+    } catch (error) {
+      container.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
+      console.error(error);
     }
-  } catch (error) {
-    console.error('Error al cargar repositorios:', error);
-    container.innerHTML = '<p>Error al cargar los proyectos desde GitHub.</p>';
   }
-}
 
-// Ejecutar la función cuando se cargue el documento
-document.addEventListener('DOMContentLoaded', loadGitHubRepos);
+  // Cargar repositorios al cargar la página
+  document.addEventListener("DOMContentLoaded", loadGitHubRepos);
 </script>
   
 </body>
