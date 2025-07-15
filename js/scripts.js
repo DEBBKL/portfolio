@@ -58,56 +58,54 @@ function closeModal() {
 }
 
 async function loadGitHubRepos() {
-  const response = await fetch("https://api.github.com/users/DEBBKL/repos");
-  const repos = await response.json();
+  const container = document.getElementById('projects-container');
+  container.innerHTML = '';
 
-  const excludedRepos = [
-    "portfolio",
-    "debbkl",
-    "skills-introduction-to-github",
-    "chaosmonkey",
-    "portafolio-template",
-    "profile-readme-generator"
-  ].map(name => name.toLowerCase());
+  const filter = document.getElementById('filter').value;
 
-  const filteredRepos = repos.filter(repo => 
-    !repo.fork &&
-    !excludedRepos.includes(repo.name.toLowerCase())
-  );
+  try {
+    const response = await fetch('https://api.github.com/users/DEBBKL/repos');
+    if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
 
-  console.log("Repos filtrados:", filteredRepos.map(r => r.name));
+    let repos = await response.json();
 
-  const sortBy = document.getElementById("filter").value;
+    repos = repos.filter(repo => !repo.fork && !repo.private);
 
-  switch (sortBy) {
-    case "newest":
-      filteredRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-      break;
-    case "oldest":
-      filteredRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
-      break;
-    case "az":
-      filteredRepos.sort((a, b) => a.name.localeCompare(b.name));
-      break;
-    case "za":
-      filteredRepos.sort((a, b) => b.name.localeCompare(a.name));
-      break;
+    // Ordenar según filtro
+    repos.sort((a, b) => {
+      switch(filter) {
+        case 'newest':
+          return new Date(b.created_at) - new Date(a.created_at);
+        case 'oldest':
+          return new Date(a.created_at) - new Date(b.created_at);
+        case 'az':
+          return a.name.localeCompare(b.name);
+        case 'za':
+          return b.name.localeCompare(a.name);
+        default:
+          return 0;
+      }
+    });
+
+    if (repos.length === 0) {
+      container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
+      return;
+    }
+
+    repos.forEach(repo => {
+      const card = document.createElement('div');
+      card.classList.add('project-card');
+      card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || 'Sin descripción.'}</p>
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+      `;
+      container.appendChild(card);
+    });
+  } catch (error) {
+    container.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
+    console.error(error);
   }
-
-  const container = document.getElementById("projects-container");
-  container.innerHTML = "";
-
-  filteredRepos.forEach(repo => {
-    const card = document.createElement("div");
-    card.className = "project-card";
-    card.innerHTML = `
-      <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h3>
-      <p>${repo.description || "Sin descripción."}</p>
-      <p><strong>Lenguaje:</strong> ${repo.language || "N/A"}</p>
-      <p><strong>Actualizado:</strong> ${new Date(repo.updated_at).toLocaleDateString()}</p>
-    `;
-    container.appendChild(card);
-  });
 }
 
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
