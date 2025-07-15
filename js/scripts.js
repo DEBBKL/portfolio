@@ -60,49 +60,54 @@ function closeModal() {
 async function loadGitHubRepos() {
   const response = await fetch("https://api.github.com/users/DEBBKL/repos");
   const repos = await response.json();
-  const sortBy = document.getElementById("filter").value;
 
-  // Lista exacta de repos a excluir (con el nombre tal cual aparece en GitHub)
-  const excludedRepos = [
-    "DEBBKL",
+  // Lista completa de repos a excluir (en minúsculas para comparación)
+  const excludedReposLower = [
+    "portfolio",
+    "debbkl",
     "skills-introduction-to-github",
-    "chaos-monkey",
-    "portfolio"
+    "chaosmonkey",
+    "portafolio-template",
+    "profile-readme-generator"
   ];
 
-  // Filtramos forks y excluimos los repos con esos nombres exactos
-  let filteredRepos = repos.filter(repo => {
-    if (repo.fork) return false;
-    return !excludedRepos.includes(repo.name.toLowerCase());
+  // filtro excluyendo forks y esos repos
+  const filteredRepos = repos.filter(repo => {
+    return (
+      !repo.fork &&
+      !excludedReposLower.includes(repo.name.toLowerCase())
+    );
   });
 
-  let sortedRepos = filteredRepos;
+  const sortBy = document.getElementById("filter").value;
 
   switch (sortBy) {
     case "newest":
-      sortedRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      filteredRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       break;
     case "oldest":
-      sortedRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      filteredRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
       break;
     case "az":
-      sortedRepos.sort((a, b) => a.name.localeCompare(b.name));
+      filteredRepos.sort((a, b) => a.name.localeCompare(b.name));
       break;
     case "za":
-      sortedRepos.sort((a, b) => b.name.localeCompare(a.name));
+      filteredRepos.sort((a, b) => b.name.localeCompare(a.name));
       break;
   }
+
+  console.log("Repos mostrados:", filteredRepos.map(r => r.name));
 
   const container = document.getElementById("projects-container");
   container.innerHTML = "";
 
-  sortedRepos.forEach(repo => {
+  filteredRepos.forEach(repo => {
     const card = document.createElement("div");
     card.className = "project-card";
     card.innerHTML = `
       <div class="project-info">
         <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h3>
-        <p class="project-description">${repo.description ? repo.description : "Sin descripción."}</p>
+        <p class="project-description">${repo.description || "Sin descripción."}</p>
       </div>
       <div class="project-meta">
         <p><strong>Lenguaje:</strong> ${repo.language || "N/A"}</p>
@@ -114,3 +119,4 @@ async function loadGitHubRepos() {
 }
 
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
+
