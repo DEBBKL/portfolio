@@ -322,22 +322,22 @@ header h2 {
 
 .projects-grid {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* ya estaba */
   gap: 1.6rem;
   margin-top: 1rem;
 }
 
 .project-card {
   display: flex;
-  flex-direction: row;
-  border: 2px solid var(--blue-light);
+  flex-direction: column; /* cambio de row a column para vertical */
+  border: 2px solid #54b6db; /* color azul clarito */
   border-radius: 8px;
   padding: 1rem;
   box-shadow: var(--section-shadow);
   transition: box-shadow 0.3s ease;
   background-color: var(--white);
-  gap: 1rem;
-  align-items: center;
+  gap: 0.75rem; /* un poco menos espacio */
+  align-items: flex-start; /* alinea a la izquierda */
 }
 
 .project-card:hover {
@@ -347,8 +347,9 @@ header h2 {
 .project-card a {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--blue-dark);
+  color: #54b6db; /* azul clarito */
   text-decoration: none;
+  font-family: 'Urbanist', sans-serif;
 }
 
 .project-card a:hover,
@@ -357,21 +358,23 @@ header h2 {
 }
 
 .project-description {
-  margin-top: 0.5rem;
+  margin-top: 0;
   font-style: italic;
   color: var(--black);
-  flex: 1;
+  font-family: 'Inter', sans-serif;
+  flex: unset; /* quitar flex para no forzar tamaño */
 }
 
 .project-meta {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-size: 0.9rem;
   color: #666;
   display: flex;
   gap: 1rem;
-  flex-direction: column;
-  min-width: 160px;
-  text-align: right;
+  flex-direction: row; /* horizontal para los metadatos */
+  flex-wrap: wrap;
+  min-width: unset; /* quitar mínimo para que sea flexible */
+  text-align: left; /* alinear texto a la izquierda */
 }
 
 .project-filter {
@@ -387,6 +390,7 @@ header h2 {
   border-radius: 0.5rem;
   border: 1px solid #ccc;
 }
+
 
 /* ---------------- HEADER MEJORADO ---------------- */
 .site-header {
