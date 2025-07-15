@@ -148,6 +148,22 @@ section ul li {
   padding-left: 0;
 }
 
+.btn-ver-mas {
+  background-color: var(--blue-light);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+  text-align: center;
+}
+
+.btn-ver-mas:hover {
+  background-color: var(--blue-dark);
+}
+
 /* BOTÓN CV */
 
 .btn-cv {
