@@ -478,6 +478,28 @@
   // Cargar repositorios al cargar la página
   document.addEventListener("DOMContentLoaded", loadGitHubRepos);
 </script>
+
+<script>
+  function filterProjects() {
+    const filter = document.getElementById("techFilter")?.value || 'all';
+    const cards = document.querySelectorAll(".project-card");
+
+    cards.forEach(card => {
+      const techs = card.getAttribute("data-tech") || "";
+      if (filter === "all" || techs.includes(filter)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  // Puedes añadir aquí un event listener para que se ejecute al cambiar el select
+  const techFilterSelect = document.getElementById('techFilter');
+  if (techFilterSelect) {
+    techFilterSelect.addEventListener('change', filterProjects);
+  }
+</script>
   
 </body>
    <footer>
