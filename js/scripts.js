@@ -109,3 +109,19 @@ async function loadGitHubRepos() {
 }
 
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
+
+<script>
+function filterProjects() {
+  const filter = document.getElementById("techFilter").value;
+  const cards = document.querySelectorAll(".project-card");
+
+  cards.forEach(card => {
+    const techs = card.getAttribute("data-tech");
+    if (filter === "all" || techs.includes(filter)) {
+      card.style.display = "flex";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
