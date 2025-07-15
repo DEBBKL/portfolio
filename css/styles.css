@@ -601,7 +601,7 @@ header h2 {
   font-family: 'Urbanist', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
   color: var(--brand-color, #54b6db);
 }
 
