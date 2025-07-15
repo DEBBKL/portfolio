@@ -511,9 +511,9 @@ header h2 {
 #skills-section .section-title {
   font-family: 'Urbanist', sans-serif;
   font-size: 2.2rem;
-  text-align: center;
+  text-align: left;
   margin-bottom: 2.5rem;
-  color: var(--black);
+  color: #54b6db;
 }
 #skills-section .skills-grid {
   display: grid;
