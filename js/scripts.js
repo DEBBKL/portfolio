@@ -62,7 +62,15 @@ async function loadGitHubRepos() {
   const repos = await response.json();
   const sortBy = document.getElementById("filter").value;
 
-  let sortedRepos = repos.filter(repo => !repo.fork); // Excluir forks
+  // Excluir forks y proyectos por nombre
+  let excludedNames = ["DEBBKL", "skills introduction to github", "chaos monkey", "portfolio"];
+
+  let filteredRepos = repos.filter(repo => 
+    !repo.fork &&
+    !excludedNames.some(name => repo.name.toLowerCase() === name.toLowerCase())
+  );
+
+  let sortedRepos = filteredRepos;
 
   switch (sortBy) {
     case "newest":
@@ -100,3 +108,4 @@ async function loadGitHubRepos() {
 }
 
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
+
