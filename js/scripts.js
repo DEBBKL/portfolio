@@ -62,13 +62,15 @@ async function loadGitHubRepos() {
   const repos = await response.json();
   const sortBy = document.getElementById("filter").value;
 
-  // Excluir forks y proyectos por nombre
-  let excludedNames = ["DEBBKL", "skills introduction to github", "chaos monkey", "portfolio"];
+  // Palabras clave para excluir (sin importar mayúsculas/minúsculas y espacios)
+  const excludedKeywords = ["debbkl", "skills", "introduction", "github", "chaos monkey", "portfolio"];
 
-  let filteredRepos = repos.filter(repo => 
-    !repo.fork &&
-    !excludedNames.some(name => repo.name.toLowerCase() === name.toLowerCase())
-  );
+  // Filtramos forks y los repos que contengan alguna palabra clave en su nombre
+  let filteredRepos = repos.filter(repo => {
+    if (repo.fork) return false;
+    const repoName = repo.name.toLowerCase().replace(/\s+/g, '');
+    return !excludedKeywords.some(keyword => repoName.includes(keyword.replace(/\s+/g, '')));
+  });
 
   let sortedRepos = filteredRepos;
 
