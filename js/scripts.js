@@ -61,23 +61,21 @@ async function loadGitHubRepos() {
   const response = await fetch("https://api.github.com/users/DEBBKL/repos");
   const repos = await response.json();
 
-  // Lista completa de repos a excluir (en minúsculas para comparación)
-  const excludedReposLower = [
+  const excludedRepos = [
     "portfolio",
     "debbkl",
     "skills-introduction-to-github",
     "chaosmonkey",
     "portafolio-template",
     "profile-readme-generator"
-  ];
+  ].map(name => name.toLowerCase());
 
-  // filtro excluyendo forks y esos repos
-  const filteredRepos = repos.filter(repo => {
-    return (
-      !repo.fork &&
-      !excludedReposLower.includes(repo.name.toLowerCase())
-    );
-  });
+  const filteredRepos = repos.filter(repo => 
+    !repo.fork &&
+    !excludedRepos.includes(repo.name.toLowerCase())
+  );
+
+  console.log("Repos filtrados:", filteredRepos.map(r => r.name));
 
   const sortBy = document.getElementById("filter").value;
 
@@ -96,8 +94,6 @@ async function loadGitHubRepos() {
       break;
   }
 
-  console.log("Repos mostrados:", filteredRepos.map(r => r.name));
-
   const container = document.getElementById("projects-container");
   container.innerHTML = "";
 
@@ -105,18 +101,13 @@ async function loadGitHubRepos() {
     const card = document.createElement("div");
     card.className = "project-card";
     card.innerHTML = `
-      <div class="project-info">
-        <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h3>
-        <p class="project-description">${repo.description || "Sin descripción."}</p>
-      </div>
-      <div class="project-meta">
-        <p><strong>Lenguaje:</strong> ${repo.language || "N/A"}</p>
-        <p><strong>Actualizado:</strong> ${new Date(repo.updated_at).toLocaleDateString()}</p>
-      </div>
+      <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h3>
+      <p>${repo.description || "Sin descripción."}</p>
+      <p><strong>Lenguaje:</strong> ${repo.language || "N/A"}</p>
+      <p><strong>Actualizado:</strong> ${new Date(repo.updated_at).toLocaleDateString()}</p>
     `;
     container.appendChild(card);
   });
 }
 
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
-
