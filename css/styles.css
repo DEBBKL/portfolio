@@ -316,20 +316,23 @@ header h2 {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.6rem;
   margin-top: 1rem;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: row;
   border: 2px solid var(--blue-light);
   border-radius: 8px;
   padding: 1rem;
-  margin-bottom: 1.5rem;
   box-shadow: var(--section-shadow);
   transition: box-shadow 0.3s ease;
   background-color: var(--white);
+  gap: 1rem;
+  align-items: center;
 }
 
 .project-card:hover {
@@ -352,6 +355,7 @@ header h2 {
   margin-top: 0.5rem;
   font-style: italic;
   color: #333;
+  flex: 1;
 }
 
 .project-meta {
@@ -360,6 +364,9 @@ header h2 {
   color: #666;
   display: flex;
   gap: 1rem;
+  flex-direction: column;
+  min-width: 160px;
+  text-align: right;
 }
 
 .project-filter {
