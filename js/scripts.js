@@ -57,50 +57,46 @@ function closeModal() {
   });
 }
 
-<script>
 async function loadGitHubRepos() {
-  const container = document.getElementById('projects-container');
-  const filter = document.getElementById('filter')?.value || 'newest';
-  container.innerHTML = '';
+  const response = await fetch("https://api.github.com/users/DEBBKL/repos");
+  const repos = await response.json();
+  const sortBy = document.getElementById("filter").value;
 
-  try {
-    const response = await fetch('https://api.github.com/users/DEBBKL/repos');
-    if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
+  let sortedRepos = repos.filter(repo => !repo.fork); // Excluir forks
 
-    let repos = await response.json();
-
-    // Filtrar
-    repos = repos.filter(repo => !repo.fork && !repo.private);
-
-    // Ordenar según filtro seleccionado
-    repos.sort((a, b) => {
-      if (filter === 'newest') return new Date(b.created_at) - new Date(a.created_at);
-      if (filter === 'oldest') return new Date(a.created_at) - new Date(b.created_at);
-      if (filter === 'az') return a.name.localeCompare(b.name);
-      if (filter === 'za') return b.name.localeCompare(a.name);
-      return 0;
-    });
-
-    // Pintar
-    repos.forEach(repo => {
-      const card = document.createElement('div');
-      card.classList.add('project-card');
-      card.innerHTML = `
-        <h3>${repo.name}</h3>
-        <p>${repo.description || 'Sin descripción.'}</p>
-        <a href="${repo.html_url}" target="_blank">Ver en GitHub</a>
-      `;
-      container.appendChild(card);
-    });
-
-    if (repos.length === 0) {
-      container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
-    }
-  } catch (error) {
-    console.error('Error al cargar repositorios:', error);
-    container.innerHTML = '<p>Error al cargar los proyectos desde GitHub.</p>';
+  switch (sortBy) {
+    case "newest":
+      sortedRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      break;
+    case "oldest":
+      sortedRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      break;
+    case "az":
+      sortedRepos.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "za":
+      sortedRepos.sort((a, b) => b.name.localeCompare(a.name));
+      break;
   }
+
+  const container = document.getElementById("projects-container");
+  container.innerHTML = "";
+
+  sortedRepos.forEach(repo => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+      <div class="project-info">
+        <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h3>
+        <p class="project-description">${repo.description ? repo.description : "Sin descripción."}</p>
+      </div>
+      <div class="project-meta">
+        <p><strong>Lenguaje:</strong> ${repo.language || "N/A"}</p>
+        <p><strong>Actualizado:</strong> ${new Date(repo.updated_at).toLocaleDateString()}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
 }
 
-document.addEventListener('DOMContentLoaded', loadGitHubRepos);
-</script>
+document.addEventListener("DOMContentLoaded", loadGitHubRepos);
