@@ -629,7 +629,7 @@ header h2 {
 }
 
 .contact-list a {
-  color: var(--brand-color, #5b5bd6);
+  color: var(--brand-color, #54b6db);
   text-decoration: none;
   font-weight: 500;
   word-break: break-word;
@@ -644,7 +644,7 @@ header h2 {
   height: 20px;
   flex-shrink: 0;
   display: inline-block;
-  color: var(--brand-color, #5b5bd6);
+  color: var(--brand-color, #54b6db);
 }
   color: var(--brand-color, #5b5bd6);
 }
