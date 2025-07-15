@@ -1,55 +1,63 @@
+// Elementos DOM para modal CV
 const openCvBtn  = document.getElementById('open-cv');
+const openCvLink = document.getElementById('open-cv-link');
 const closeCvBtn = document.getElementById('close-cv');
 const cvModal    = document.getElementById('cv-modal');
 const cvIframe   = document.getElementById('cv-iframe');
 const loader     = document.getElementById('cv-loader');
 
+// Añadir eventos para abrir/cerrar modal
 if (openCvBtn) openCvBtn.addEventListener('click', openModal);
-const openCvLink = document.getElementById('open-cv-link');
 if (openCvLink) openCvLink.addEventListener('click', openModal);
 if (closeCvBtn) closeCvBtn.addEventListener('click', closeModal);
 
-// Evento para cerrar modal con ESC
+// Cerrar modal con tecla ESC
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && cvModal.style.display === 'flex') {
     closeModal();
   }
 });
 
-// Cerrar modal clicando fuera del contenido
-cvModal.addEventListener('click', (e) => {
-  if (e.target === cvModal) {
-    closeModal();
-  }
-});
+// Cerrar modal clicando fuera del contenido (fondo)
+if (cvModal) {
+  cvModal.addEventListener('click', (e) => {
+    if (e.target === cvModal) {
+      closeModal();
+    }
+  });
+}
 
-// Asignar onload solo una vez
-cvIframe.onload = () => {
-  loader.style.display = 'none';
-  cvIframe.style.display = 'block';
-};
+// Cuando se carga el iframe del CV, ocultar loader y mostrar iframe
+if (cvIframe) {
+  cvIframe.onload = () => {
+    loader.style.display = 'none';
+    cvIframe.style.display = 'block';
+  };
+}
 
+// Función para abrir modal CV
 function openModal(e) {
   if (e) e.preventDefault();
 
   cvModal.style.display = 'flex';
   document.body.classList.add('modal-open');
 
-  // Reinicia la animación si se reabre rápidamente
+  // Reiniciar animación para fade-in
   cvModal.classList.remove('fade-out');
-  void cvModal.offsetWidth; // fuerza reflow
+  void cvModal.offsetWidth; // fuerza reflow para reiniciar animación
   cvModal.classList.add('fade-in');
 
-  // Mostrar loader y ocultar iframe
+  // Mostrar loader y ocultar iframe hasta que se cargue
   loader.style.display = 'block';
   cvIframe.style.display = 'none';
 }
 
+// Función para cerrar modal CV con animación fade-out
 function closeModal() {
-  // Transición de salida
   cvModal.classList.remove('fade-in');
   cvModal.classList.add('fade-out');
 
+  // Al terminar la animación, ocultar modal y limpiar clases
   cvModal.addEventListener('animationend', function handler() {
     cvModal.style.display = 'none';
     document.body.classList.remove('modal-open');
@@ -57,11 +65,14 @@ function closeModal() {
   });
 }
 
+// Función para cargar repositorios públicos desde GitHub y mostrarlos
 async function loadGitHubRepos() {
   const container = document.getElementById('projects-container');
+  if (!container) return;
+
   container.innerHTML = '';
 
-  const filter = document.getElementById('filter').value;
+  const filter = document.getElementById('filter')?.value || 'newest';
 
   try {
     const response = await fetch('https://api.github.com/users/DEBBKL/repos');
@@ -69,9 +80,10 @@ async function loadGitHubRepos() {
 
     let repos = await response.json();
 
+    // Filtrar repos que no son forks ni privados
     repos = repos.filter(repo => !repo.fork && !repo.private);
 
-    // Ordenar según filtro
+    // Ordenar según filtro seleccionado
     repos.sort((a, b) => {
       switch(filter) {
         case 'newest':
@@ -92,14 +104,20 @@ async function loadGitHubRepos() {
       return;
     }
 
+    // Crear y añadir tarjetas para cada repositorio
     repos.forEach(repo => {
       const card = document.createElement('div');
       card.classList.add('project-card');
+
+      // Asigna data-tech si tienes tecnología, aquí lo dejo vacío (puedes añadir según tu lógica)
+      // card.setAttribute('data-tech', 'javascript,css'); 
+
       card.innerHTML = `
         <h3>${repo.name}</h3>
         <p>${repo.description || 'Sin descripción.'}</p>
         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
       `;
+
       container.appendChild(card);
     });
   } catch (error) {
@@ -108,15 +126,16 @@ async function loadGitHubRepos() {
   }
 }
 
+// Cargar repositorios al cargar la página
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
 
-<script>
+// Función para filtrar proyectos por tecnología
 function filterProjects() {
-  const filter = document.getElementById("techFilter").value;
+  const filter = document.getElementById("techFilter")?.value || 'all';
   const cards = document.querySelectorAll(".project-card");
 
   cards.forEach(card => {
-    const techs = card.getAttribute("data-tech");
+    const techs = card.getAttribute("data-tech") || "";
     if (filter === "all" || techs.includes(filter)) {
       card.style.display = "flex";
     } else {
@@ -124,4 +143,4 @@ function filterProjects() {
     }
   });
 }
-</script>
+
