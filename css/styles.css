@@ -177,6 +177,11 @@ section ul li {
   color: var(--white);
 }
 
+.btn-cv:focus {
+  outline: 2px solid var(--blue-dark);
+  outline-offset: 2px;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
