@@ -148,45 +148,31 @@ section ul li {
   padding-left: 0;
 }
 
-.btn-ver-mas {
-  display: inline-block;
-  padding: 0.4em 0.8em;
-  background-color: var(--blue-light);
-  color: var(--white) !important;
-  text-decoration: none;
-  border-radius: 0.5em;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-top: 0.5em;
-}
-
-.btn-ver-mas:hover,
-.btn-ver-mas:focus {
-  background-color: var(--blue-dark);
-  color: var(--white) !important;
-  outline: none;
-}
-
-/* BOTÓN CV */
-
-.btn-cv {
-  cursor: pointer;
-}
-
-.btn-ver-mas {
+/* Diseño general para todos los botones y enlaces con clase .btn o .btn-ver-mas */
+body button,
+body a.btn,
+body a.btn-ver-mas {
   display: inline-block;
   padding: 0.4em 0.8em;
   background-color: var(--blue-light);
   color: var(--white);
   text-decoration: none;
+  border: none;
   border-radius: 0.5em;
   font-weight: 600;
+  cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 0.5em;
+  text-align: center;
 }
 
-.btn-ver-mas:hover,
-.btn-ver-mas:focus {
+/* Hover y focus para todos */
+body button:hover,
+body button:focus,
+body a.btn:hover,
+body a.btn:focus,
+body a.btn-ver-mas:hover,
+body a.btn-ver-mas:focus {
   background-color: var(--blue-dark);
   color: var(--white);
   outline: none;
