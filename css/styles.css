@@ -155,14 +155,23 @@ section ul li {
   text-decoration: none;
   font-weight: bold;
   border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   align-self: flex-end;
   text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-ver-mas:hover {
   background-color: var(--blue-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
+.btn-ver-mas:focus {
+  outline: 2px dashed var(--blue-dark);
+  outline-offset: 2px;
+}
+
 
 /* BOTÓN CV */
 
@@ -563,7 +572,31 @@ header h2 {
 
 /* Red Team */
 #skills-section .red-team {
-  background: linear-gradient(135deg, #b71c1c, #f44336);
+  background: linear-gradient(135deg, #b71c1c 0%, #f44336 100%);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+#skills-section .red-team h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 6px rgba(244, 67, 54, 0.6);
+}
+
+#skills-section .red-team .skill-list {
+  list-style: disc inside;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+#skills-section .red-team .skill-list li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.3rem;
 }
 
 #skills-section .red-team h3 {
@@ -575,18 +608,21 @@ header h2 {
 
 /* Blue Team */
 #skills-section .blue-team {
-  background: linear-gradient(135deg, #0d47a1, #42a5f5);
+  background: linear-gradient(135deg, #0d47a1 0%, #42a5f5 100%);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 #skills-section .blue-team h3 {
   font-family: 'Urbanist', sans-serif;
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  text-shadow: 0 0 8px #2979ff;
+  text-shadow: 0 2px 6px rgba(41, 121, 255, 0.6);
 }
 
 /* Listado */
-#skills-section .skill-column ul {
+#skills-section .blue-team .skill-list {
   list-style: disc inside;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
@@ -595,8 +631,9 @@ header h2 {
   padding: 0;
 }
 
-#skills-section .skill-column li {
+#skills-section .blue-team .skill-list li {
   margin-bottom: 0.6rem;
+  padding-left: 0.3rem;
 }
 
 /* Responsive */
