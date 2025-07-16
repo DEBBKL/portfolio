@@ -173,32 +173,23 @@ section ul li {
   cursor: pointer;
 }
 
-.btn-cv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: fit-content;
-  margin: 2rem auto;
-  background: var(--blue-light);
-  color: var(--black);
-  font-family: 'Urbanist', sans-serif;
+.btn-ver-mas {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  background-color: var(--blue-light); /* uso de la variable */
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5em;
   font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+  margin-top: 0.5em;
 }
 
-.btn-cv:hover {
-  background: var(--blue-dark);
-  color: var(--white);
-}
-
-.btn-cv:focus {
-  outline: 2px solid var(--blue-dark);
-  outline-offset: 2px;
+.btn-ver-mas:hover,
+.btn-ver-mas:focus {
+  background-color: #3a9bcf; /* un azul un poco más oscuro que --blue-light para hover */
+  color: white;
+  outline: none;
 }
 
 /* FOOTER */
