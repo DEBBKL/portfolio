@@ -149,29 +149,22 @@ section ul li {
 }
 
 .btn-ver-mas {
-  background-color: var(--blue-light);
-  color: white !important;
-  padding: 0.4rem 0.8rem;
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  background-color: #3b82f6; /* azul marca */
+  color: white;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  align-self: flex-end;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5em;
 }
 
-.btn-ver-mas:hover {
-  background-color: var(--blue-dark);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
+.btn-ver-mas:hover,
 .btn-ver-mas:focus {
-  outline: 2px dashed var(--blue-dark);
-  outline-offset: 2px;
+  background-color: #2563eb; /* azul más oscuro */
+  outline: none;
 }
-
 
 /* BOTÓN CV */
 
