@@ -151,21 +151,22 @@ section ul li {
 .btn-ver-mas {
   display: inline-block;
   padding: 0.4em 0.8em;
-  background-color: #3b82f6; /* azul marca */
-  color: white;             /* texto blanco */
+  background-color: var(--blue-light);
+  color: var(--white) !important; /* fuerza el color blanco */
   text-decoration: none;
   border-radius: 0.5em;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 0.5em;
 }
 
 .btn-ver-mas:hover,
 .btn-ver-mas:focus {
-  background-color: #2563eb; /* azul más oscuro */
-  color: white;              /* que siga blanco al hacer hover/focus */
+  background-color: var(--blue-dark);
+  color: var(--white);
   outline: none;
 }
+
 
 /* BOTÓN CV */
 
