@@ -176,8 +176,8 @@ section ul li {
 .btn-ver-mas {
   display: inline-block;
   padding: 0.4em 0.8em;
-  background-color: var(--blue-light); /* uso de la variable */
-  color: white;
+  background-color: var(--blue-light);
+  color: var(--white);
   text-decoration: none;
   border-radius: 0.5em;
   font-weight: 600;
@@ -187,10 +187,11 @@ section ul li {
 
 .btn-ver-mas:hover,
 .btn-ver-mas:focus {
-  background-color: #3a9bcf; /* un azul un poco más oscuro que --blue-light para hover */
-  color: white;
+  background-color: var(--blue-dark);
+  color: var(--white);
   outline: none;
 }
+
 
 /* FOOTER */
 footer {
