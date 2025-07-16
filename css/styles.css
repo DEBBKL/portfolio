@@ -152,7 +152,7 @@ section ul li {
   display: inline-block;
   padding: 0.4em 0.8em;
   background-color: #3b82f6; /* azul marca */
-  color: white;
+  color: white;             /* texto blanco */
   text-decoration: none;
   border-radius: 0.5em;
   font-weight: 600;
@@ -163,6 +163,7 @@ section ul li {
 .btn-ver-mas:hover,
 .btn-ver-mas:focus {
   background-color: #2563eb; /* azul más oscuro */
+  color: white;              /* que siga blanco al hacer hover/focus */
   outline: none;
 }
 
