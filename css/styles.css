@@ -148,33 +148,49 @@ section ul li {
   padding-left: 0;
 }
 
-/* Diseño general para todos los botones y enlaces con clase .btn o .btn-ver-mas */
+/* Estilo base para todos los botones y enlaces con clases .btn, .btn-ver-mas y .btn-cv */
 body button,
 body a.btn,
-body a.btn-ver-mas {
+body a.btn-ver-mas,
+body button.btn-cv,
+body a.btn-cv {
   display: inline-block;
   padding: 0.4em 0.8em;
   background-color: var(--blue-light);
   color: var(--white);
-  text-decoration: none;
-  border: none;
-  border-radius: 0.5em;
+  border: 2px solid var(--blue-light);  /* borde light blue */
+  border-radius: 0.5em;                  /* esquinas redondeadas */
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease, 
+    border-color 0.3s ease;
   margin-top: 0.5em;
   text-align: center;
 }
 
-/* Hover y focus para todos */
+/* Estado hover: fondo azul oscuro, texto blanco */
 body button:hover,
-body button:focus,
 body a.btn:hover,
-body a.btn:focus,
 body a.btn-ver-mas:hover,
-body a.btn-ver-mas:focus {
+body button.btn-cv:hover,
+body a.btn-cv:hover {
   background-color: var(--blue-dark);
   color: var(--white);
+  border-color: var(--blue-dark);
+}
+
+/* Estado focus: fondo transparente, borde azul light y texto azul light */
+body button:focus,
+body a.btn:focus,
+body a.btn-ver-mas:focus,
+body button.btn-cv:focus,
+body a.btn-cv:focus {
+  background-color: transparent;
+  color: var(--blue-light);
+  border-color: var(--blue-light);
   outline: none;
 }
 
