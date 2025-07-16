@@ -152,7 +152,7 @@ section ul li {
   display: inline-block;
   padding: 0.4em 0.8em;
   background-color: var(--blue-light);
-  color: var(--white) !important; /* fuerza el color blanco */
+  color: var(--white) !important;
   text-decoration: none;
   border-radius: 0.5em;
   font-weight: 600;
@@ -163,9 +163,10 @@ section ul li {
 .btn-ver-mas:hover,
 .btn-ver-mas:focus {
   background-color: var(--blue-dark);
-  color: var(--white);
+  color: var(--white) !important;
   outline: none;
 }
+
 
 
 /* BOTÓN CV */
