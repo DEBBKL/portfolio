@@ -148,6 +148,18 @@ section ul li {
   padding-left: 0;
 }
 
+.chip {
+  display: inline-block;
+  background-color: #ffffff33;
+  color: #fff;
+  border: 1px solid #ffffff44;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
 /* Estilo base para todos los botones y enlaces con clases .btn, .btn-ver-mas y .btn-cv */
 body button,
 body a.btn,
