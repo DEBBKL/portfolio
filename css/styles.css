@@ -722,57 +722,59 @@ header h2 {
 }
 
 .timeline {
-  position: relative;
-  margin-top: 2rem;
-  padding-left: 2rem;
-  border-left: 2px solid var(--blue-dark); /* línea vertical */
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .timeline-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
+  position: relative;
+  background: var(--gray-light);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
-.timeline-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -1.15rem;
-  top: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--blue-dark); /* punto central */
-  border-radius: 50%;
-  border: 2px solid var(--white);
-  box-shadow: 0 0 0 2px var(--gray-light); /* borde exterior */
-}
-
-.timeline-icon {
-  position: absolute;
-  left: -3rem;
-  top: 0.25rem;
-  font-size: 1.3rem;
+.timeline-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .timeline-content h3 {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 1.1rem;
-  margin: 0;
-  color: var(--black);
+  margin: 0 0 0.3rem;
+  color: var(--blue-dark);
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .timeline-date {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: #555;
-  margin-top: 0.2rem;
+  color: var(--blue-light);
+  font-style: italic;
+  font-size: 0.9rem;
 }
-  color: #54b6db;
+
+/* Badge para estado "A punto de comenzar" */
+.badge {
+  display: inline-block;
+  background-color: var(--gray-light);
+  color: var(--blue-dark);
+  font-style: italic;
+  font-size: 0.8em;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--blue-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+.badge:hover {
+  background-color: var(--blue-dark);
+  color: var(--white);
 }
 
 .badge {
