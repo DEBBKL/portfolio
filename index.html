@@ -536,23 +536,18 @@
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll(".timeline-item");
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
-          observer.unobserve(entry.target); // Evita que se repita
+          observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    items.forEach(item => {
-      observer.observe(item);
-    });
+    items.forEach(item => observer.observe(item));
   });
 </script>
   
