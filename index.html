@@ -49,6 +49,7 @@
       <li><a href="#contact">Contacto</a></li>
       <li><a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">Currículum</a></li>
     </ul>
+    <button class="menu-toggle" aria-label="Menú">&#9776;</button>
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
@@ -550,6 +551,15 @@
     items.forEach(item => observer.observe(item));
   });
 </script>
+
+<script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
   
 </body>
    <footer>
