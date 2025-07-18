@@ -715,6 +715,58 @@ header h2 {
   flex-shrink: 0;
   display: inline-block;
   color: var(--brand-color, #54b6db);
+
+  /* TIMELINE - Formación Académica */
+.timeline-section {
+  padding: 2rem 0;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 2rem;
+  border-left: 2px solid var(--accent, #6c63ff);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.15rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--accent, #6c63ff);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #ccc;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -3rem;
+  top: 0.25rem;
+  font-size: 1.3rem;
+}
+
+.timeline-content h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--text, #1f1f1f);
+}
+
+.timeline-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted, #666);
+  margin-top: 0.2rem;
+}
 }
   color: var(--brand-color, #5b5bd6);
 }
