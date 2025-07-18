@@ -716,7 +716,7 @@ header h2 {
   display: inline-block;
   color: var(--brand-color, #54b6db);
 
-  /* TIMELINE - Formación Académica */
+/* TIMELINE - Formación Académica */
 .timeline-section {
   padding: 2rem 0;
 }
@@ -725,7 +725,7 @@ header h2 {
   position: relative;
   margin-top: 2rem;
   padding-left: 2rem;
-  border-left: 2px solid var(--accent, #6c63ff);
+  border-left: 2px solid var(--blue-dark); /* línea vertical */
 }
 
 .timeline-item {
@@ -741,10 +741,10 @@ header h2 {
   top: 0.5rem;
   width: 1rem;
   height: 1rem;
-  background-color: var(--accent, #6c63ff);
+  background-color: var(--blue-dark); /* punto central */
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #ccc;
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--gray-light); /* borde exterior */
 }
 
 .timeline-icon {
@@ -758,15 +758,14 @@ header h2 {
   font-family: 'Urbanist', sans-serif;
   font-size: 1.1rem;
   margin: 0;
-  color: var(--text, #1f1f1f);
+  color: var(--black);
 }
 
 .timeline-date {
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
-  color: var(--muted, #666);
+  color: #555;
   margin-top: 0.2rem;
-}
 }
   color: var(--brand-color, #5b5bd6);
 }
