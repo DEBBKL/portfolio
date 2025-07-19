@@ -28,7 +28,7 @@ if (cvModal) {
 }
 
 // Cuando se carga el iframe del CV, ocultar loader y mostrar iframe
-if (cvIframe) {
+if (cvIframe && loader) {
   cvIframe.onload = () => {
     loader.style.display = 'none';
     cvIframe.style.display = 'block';
@@ -54,8 +54,17 @@ function openModal(e) {
 
 // Función para cerrar modal CV con animación fade-out
 function closeModal() {
+  function onAnimationEnd() {
+    cvModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    cvModal.removeEventListener('animationend', onAnimationEnd);
+  }
+
   cvModal.classList.remove('fade-in');
   cvModal.classList.add('fade-out');
+  cvModal.addEventListener('animationend', onAnimationEnd);
+}
+
 
   // Al terminar la animación, ocultar modal y limpiar clases
   cvModal.addEventListener('animationend', function handler() {
@@ -129,18 +138,14 @@ async function loadGitHubRepos() {
 // Cargar repositorios al cargar la página
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
 
-// Función para filtrar proyectos por tecnología
+// Filtrar proyectos por tecnología
 function filterProjects() {
   const filter = document.getElementById("techFilter")?.value || 'all';
   const cards = document.querySelectorAll(".project-card");
 
   cards.forEach(card => {
     const techs = card.getAttribute("data-tech") || "";
-    if (filter === "all" || techs.includes(filter)) {
-      card.style.display = "flex";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = (filter === "all" || techs.includes(filter)) ? "flex" : "none";
   });
 }
 
