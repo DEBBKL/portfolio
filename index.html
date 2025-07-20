@@ -48,10 +48,76 @@
       <li><a href="#education">Formación</a></li>
       <li><a href="#contact">Contacto</a></li>
       <li><a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">Currículum</a></li>
-      <li><button class="menu-toggle" aria-label="Menú">&#9776;</button></li>
     </ul>
   </nav>
 
+<script>
+// Script integrado para el menú hamburguesa
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navUl = document.querySelector('nav ul');
+  
+  if (!menuToggle || !navUl) return;
+
+  // Evento click en el botón hamburguesa
+  menuToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const isActive = navUl.classList.contains('active');
+    
+    navUl.classList.toggle('active');
+    
+    // Cambiar el ícono y aria-expanded
+    if (!isActive) {
+      menuToggle.innerHTML = '&#10005;'; // ×
+      menuToggle.setAttribute('aria-expanded', 'true');
+    } else {
+      menuToggle.innerHTML = '&#9776;'; // ≡
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Cerrar menú cuando se hace click en un enlace
+  const navLinks = navUl.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Cerrar menú cuando se hace click fuera
+  document.addEventListener('click', function(e) {
+    if (!navUl.contains(e.target) && !menuToggle.contains(e.target)) {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Cerrar menú con tecla Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navUl.classList.contains('active')) {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Manejar redimensionamiento de ventana
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>
+
+  
   <!-- CONTENIDO PRINCIPAL -->
    <main class="container">
     <section id="about">
