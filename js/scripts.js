@@ -1,87 +1,77 @@
-// Elementos DOM para modal CV
-const openCvBtn  = document.getElementById('open-cv');
-const openCvLink = document.getElementById('open-cv-link');
-const closeCvBtn = document.getElementById('close-cv');
-const cvModal    = document.getElementById('cv-modal');
-const cvIframe   = document.getElementById('cv-iframe');
-const loader     = document.getElementById('cv-loader');
+// scripts.js: Funcionalidades generales del portfolio
 
-// Añadir eventos para abrir/cerrar modal
-if (openCvBtn) openCvBtn.addEventListener('click', openModal);
-if (openCvLink) openCvLink.addEventListener('click', openModal);
-if (closeCvBtn) closeCvBtn.addEventListener('click', closeModal);
-
-// Cerrar modal con tecla ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && cvModal.style.display === 'flex') {
-    closeModal();
-  }
+// Inicialización cuando se carga el DOM
+document.addEventListener("DOMContentLoaded", function() {
+  // Inicializar animaciones de timeline
+  initTimelineAnimations();
+  
+  // Inicializar menú móvil
+  initMobileMenu();
+  
+  // Inicializar filtros de proyectos
+  initProjectFilters();
 });
 
-// Cerrar modal clicando fuera del contenido (fondo)
-if (cvModal) {
-  cvModal.addEventListener('click', (e) => {
-    if (e.target === cvModal) {
-      closeModal();
+// Animaciones para la sección de timeline (formación)
+function initTimelineAnimations() {
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  
+  if (timelineItems.length === 0) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  timelineItems.forEach(item => observer.observe(item));
+}
+
+// Menú móvil (hamburguesa)
+function initMobileMenu() {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav ul');
+  
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+}
+
+// Filtros de proyectos por tecnología
+function initProjectFilters() {
+  const techFilterSelect = document.getElementById('techFilter');
+  
+  if (techFilterSelect) {
+    techFilterSelect.addEventListener('change', filterProjects);
+  }
+}
+
+// Función para filtrar proyectos por tecnología
+function filterProjects() {
+  const filter = document.getElementById("techFilter")?.value || 'all';
+  const cards = document.querySelectorAll(".project-card");
+
+  cards.forEach(card => {
+    const techs = card.getAttribute("data-tech") || "";
+    if (filter === "all" || techs.includes(filter)) {
+      card.style.display = "flex";
+    } else {
+      card.style.display = "none";
     }
   });
 }
 
-// Cuando se carga el iframe del CV, ocultar loader y mostrar iframe
-if (cvIframe && loader) {
-  cvIframe.onload = () => {
-    loader.style.display = 'none';
-    cvIframe.style.display = 'block';
-  };
-}
-
-// Función para abrir modal CV
-function openModal(e) {
-  if (e) e.preventDefault();
-
-  cvModal.style.display = 'flex';
-  document.body.classList.add('modal-open');
-
-  // Reiniciar animación para fade-in
-  cvModal.classList.remove('fade-out');
-  void cvModal.offsetWidth; // fuerza reflow para reiniciar animación
-  cvModal.classList.add('fade-in');
-
-  // Mostrar loader y ocultar iframe hasta que se cargue
-  loader.style.display = 'block';
-  cvIframe.style.display = 'none';
-}
-
-// Función para cerrar modal CV con animación fade-out
-function closeModal() {
-  function onAnimationEnd() {
-    cvModal.style.display = 'none';
-    document.body.classList.remove('modal-open');
-    cvModal.removeEventListener('animationend', onAnimationEnd);
-  }
-
-  cvModal.classList.remove('fade-in');
-  cvModal.classList.add('fade-out');
-  cvModal.addEventListener('animationend', onAnimationEnd);
-}
-
-
-  // Al terminar la animación, ocultar modal y limpiar clases
-  cvModal.addEventListener('animationend', function handler() {
-    cvModal.style.display = 'none';
-    document.body.classList.remove('modal-open');
-    cvModal.removeEventListener('animationend', handler);
-  });
-}
-
-// Función para cargar repositorios públicos desde GitHub y mostrarlos
+// Función para cargar repositorios públicos desde GitHub (opcional)
 async function loadGitHubRepos() {
-  const container = document.getElementById('projects-container');
-  if (!container) return;
+  const container = document.getElementById('github-projects-container');
+  if (!container) return; // Solo ejecuta si existe el contenedor
 
-  container.innerHTML = '';
-
-  const filter = document.getElementById('filter')?.value || 'newest';
+  container.innerHTML = '<p>Cargando proyectos...</p>';
 
   try {
     const response = await fetch('https://api.github.com/users/DEBBKL/repos');
@@ -92,60 +82,64 @@ async function loadGitHubRepos() {
     // Filtrar repos que no son forks ni privados
     repos = repos.filter(repo => !repo.fork && !repo.private);
 
-    // Ordenar según filtro seleccionado
-    repos.sort((a, b) => {
-      switch(filter) {
-        case 'newest':
-          return new Date(b.created_at) - new Date(a.created_at);
-        case 'oldest':
-          return new Date(a.created_at) - new Date(b.created_at);
-        case 'az':
-          return a.name.localeCompare(b.name);
-        case 'za':
-          return b.name.localeCompare(a.name);
-        default:
-          return 0;
-      }
-    });
+    // Ordenar por fecha de creación (más recientes primero)
+    repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     if (repos.length === 0) {
       container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
       return;
     }
 
+    // Limpiar contenedor
+    container.innerHTML = '';
+
     // Crear y añadir tarjetas para cada repositorio
     repos.forEach(repo => {
       const card = document.createElement('div');
       card.classList.add('project-card');
 
-      // Asigna data-tech si tienes tecnología, aquí lo dejo vacío (puedes añadir según tu lógica)
-      // card.setAttribute('data-tech', 'javascript,css'); 
+      // Formatear fecha
+      const date = new Date(repo.created_at).toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'short'
+      });
 
       card.innerHTML = `
-        <h3>${repo.name}</h3>
-        <p>${repo.description || 'Sin descripción.'}</p>
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
+        <p class="project-description">${repo.description || 'Sin descripción disponible.'}</p>
+        <div class="project-meta">
+          <span>Creado: ${date}</span>
+          ${repo.language ? `<span>Lenguaje: ${repo.language}</span>` : ''}
+          <a href="${repo.html_url}" target="_blank" class="btn-ver-mas">Ver más</a>
+        </div>
       `;
 
       container.appendChild(card);
     });
   } catch (error) {
     container.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
-    console.error(error);
+    console.error('Error loading GitHub repos:', error);
   }
 }
 
-// Cargar repositorios al cargar la página
-document.addEventListener("DOMContentLoaded", loadGitHubRepos);
-
-// Filtrar proyectos por tecnología
-function filterProjects() {
-  const filter = document.getElementById("techFilter")?.value || 'all';
-  const cards = document.querySelectorAll(".project-card");
-
-  cards.forEach(card => {
-    const techs = card.getAttribute("data-tech") || "";
-    card.style.display = (filter === "all" || techs.includes(filter)) ? "flex" : "none";
-  });
+// Funciones de utilidad
+function smoothScrollTo(elementId) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 }
 
+// Inicializar Google Translate si está disponible
+function googleTranslateElementInit() {
+  if (typeof google !== 'undefined' && google.translate) {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      includedLanguages: 'es,en,fr,de,it,pt',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+}
