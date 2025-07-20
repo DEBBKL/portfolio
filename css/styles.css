@@ -785,35 +785,104 @@ header h2 {
   color: var(--white);
 }
 
+/* Estilos para el menú responsive */
+
+/* Ocultar el botón hamburguesa por defecto (desktop) */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: var(--blue-dark);
+  padding: 10px;
+  color: var(--text-color, #333);
 }
 
+/* Estilos del menú principal para desktop */
+nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Media query para tablets y móviles */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: var(--white);
-    position: absolute;
-    top: 60px;
-    right: 1rem;
-    width: auto;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
+  /* Mostrar el botón hamburguesa en móviles */
   .menu-toggle {
     display: block;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  /* Ocultar el menú por defecto en móviles */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color, white);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 0.5rem;
+    z-index: 1000;
+  }
+  
+  /* Mostrar el menú cuando tiene la clase active */
+  nav ul.active {
+    display: flex;
+  }
+  
+  /* Ajustar los elementos del menú para móvil */
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 0.25rem 0;
+  }
+  
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Ocultar el botón hamburguesa del menú desplegable */
+  nav ul li:last-child {
+    display: none;
+  }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  nav ul {
+    margin: 0.25rem;
+    padding: 0.75rem;
+  }
+  
+  nav ul li a {
+    padding: 0.6rem;
+    font-size: 0.9rem;
   }
 }
