@@ -30,18 +30,76 @@ function initTimelineAnimations() {
   timelineItems.forEach(item => observer.observe(item));
 }
 
-// Menú móvil (hamburguesa)
-function initMobileMenu() {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('nav ul');
-  
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-  }
-}
+// hamburger-menu.js: Control del menú hamburguesa para móviles
 
+document.addEventListener("DOMContentLoaded", function() {
+  initHamburgerMenu();
+});
+
+function initHamburgerMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navUl = document.querySelector('nav ul');
+  
+  if (!menuToggle || !navUl) {
+    console.warn('Hamburger menu elements not found');
+    return;
+  }
+
+  // Evento click en el botón hamburguesa
+  menuToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Toggle de la clase active en el menú
+    navUl.classList.toggle('active');
+    
+    // Cambiar el ícono del botón (opcional)
+    if (navUl.classList.contains('active')) {
+      menuToggle.innerHTML = '&#10005;'; // ×
+      menuToggle.setAttribute('aria-expanded', 'true');
+    } else {
+      menuToggle.innerHTML = '&#9776;'; // ≡
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Cerrar menú cuando se hace click en un enlace
+  const navLinks = navUl.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Cerrar menú cuando se hace click fuera
+  document.addEventListener('click', function(e) {
+    if (!navUl.contains(e.target) && !menuToggle.contains(e.target)) {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Cerrar menú con tecla Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navUl.classList.contains('active')) {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Manejar redimensionamiento de ventana
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      navUl.classList.remove('active');
+      menuToggle.innerHTML = '&#9776;';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
 // Filtros de proyectos por tecnología
 function initProjectFilters() {
   const techFilterSelect = document.getElementById('techFilter');
