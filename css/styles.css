@@ -392,6 +392,7 @@ header h2 {
   flex-direction: column; /* ya estaba */
   gap: 1.6rem;
   margin-top: 1rem;
+  width: 100%; /* El grid ocupa todo el ancho disponible */
 }
 
 .project-card {
@@ -405,6 +406,10 @@ header h2 {
   transition: all var(--transition-normal);
   /* un poco menos espacio */
   align-items: flex-start; /* alinea a la izquierda */
+  width: 100%; /* Asegura que la tarjeta ocupe todo el ancho del contenedor padre */
+  box-sizing: border-box;
+  word-break: break-word; /* Evita que palabras largas desborden */
+  overflow-wrap: anywhere; /* Permite el wrap de texto largo */
 }
 
 .project-card:hover {
@@ -430,6 +435,10 @@ header h2 {
   color: var(--black);
   font-family: 'Inter', sans-serif;
   flex: unset; /* quitar flex para no forzar tamaño */
+  width: 100%; /* El texto ocupa todo el ancho disponible */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: justify; /* Opcional: justifica el texto para mejor adaptación */
 }
 
 .project-meta {
