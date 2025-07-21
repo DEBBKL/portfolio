@@ -223,7 +223,6 @@ body a.btn-cv {
     border-color 0.3s ease;
   margin-top: 0.5em;
   text-align: center;
-  min-width: 140px;
 }
 
 /* Estado hover: fondo azul oscuro, texto blanco */
@@ -430,8 +429,10 @@ header h2 {
   max-width: 100%;
   overflow: visible; /* Asegura que no se oculte el texto */
   display: block; /* Ocupa todo el ancho disponible */
-  padding-left: 12px; /* Más espacio a la izquierda para el título */
-  padding-right: 2px;
+  padding-left: 10px; /* Espacio suficiente a la izquierda */
+  padding-right: 10px; /* Espacio a la derecha */
+  font-size: 1.08rem; /* Opcional: tamaño ligeramente menor para mejor ajuste */
+  line-height: 1.3;   /* Mejor legibilidad si el título ocupa varias líneas */
 }
 
 .project-card a:hover,
@@ -1107,7 +1108,26 @@ nav ul li a:focus-visible {
 /* Ajusta los botones de proyectos destacados */
 .btn-ver-mas,
 .btn-cv {
-  min-width: 80px !important; /* Reduce el ancho mínimo */
-  padding: 0.3em 0.7em !important; /* Reduce el padding */
-  font-size: 0.95rem !important;   /* Opcional: tamaño de fuente más pequeño */
+  min-width: 64px !important;
+  padding: 0.25em 0.6em !important;
+  font-size: 0.92rem !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  border-radius: 0.4em !important;
+  margin-top: 0.2em !important;
+}
+
+/* Responsive: botones y títulos en móvil */
+@media (max-width: 600px) {
+  .project-card a {
+    font-size: 1rem;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .btn-ver-mas,
+  .btn-cv {
+    min-width: 48px !important;
+    font-size: 0.88rem !important;
+    padding: 0.18em 0.5em !important;
+  }
 }
