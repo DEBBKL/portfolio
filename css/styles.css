@@ -430,7 +430,7 @@ header h2 {
   max-width: 100%;
   overflow: visible; /* Asegura que no se oculte el texto */
   display: block; /* Ocupa todo el ancho disponible */
-  padding-left: 2px;
+  padding-left: 12px; /* Más espacio a la izquierda para el título */
   padding-right: 2px;
 }
 
@@ -1102,4 +1102,12 @@ nav ul li a:focus-visible {
 }
 .modal.fade-out {
   animation: fadeBg 0.4s reverse forwards;
+}
+
+/* Ajusta los botones de proyectos destacados */
+.btn-ver-mas,
+.btn-cv {
+  min-width: 80px !important; /* Reduce el ancho mínimo */
+  padding: 0.3em 0.7em !important; /* Reduce el padding */
+  font-size: 0.95rem !important;   /* Opcional: tamaño de fuente más pequeño */
 }
