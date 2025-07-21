@@ -408,8 +408,10 @@ header h2 {
   align-items: flex-start; /* alinea a la izquierda */
   width: 100%; /* Asegura que la tarjeta ocupe todo el ancho del contenedor padre */
   box-sizing: border-box;
-  word-break: break-word; /* Evita que palabras largas desborden */
-  overflow-wrap: anywhere; /* Permite el wrap de texto largo */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  overflow: hidden; /* Oculta el desbordamiento horizontal */
 }
 
 .project-card:hover {
@@ -436,8 +438,11 @@ header h2 {
   font-family: 'Inter', sans-serif;
   flex: unset; /* quitar flex para no forzar tamaño */
   width: 100%; /* El texto ocupa todo el ancho disponible */
+  box-sizing: border-box;
+  overflow-wrap: break-word;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  max-width: 100%;
+  overflow: hidden; /* Oculta el desbordamiento horizontal */
   text-align: justify; /* Opcional: justifica el texto para mejor adaptación */
 }
 
