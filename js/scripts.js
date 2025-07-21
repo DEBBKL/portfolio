@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   initTimelineAnimations();
   initHamburgerMenu();
   initProjectFilters();
+  initScrollTopButton();
 });
 
 // Animaciones para la sección de timeline (formación)
@@ -158,4 +159,26 @@ function googleTranslateElementInit() {
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
+}
+
+// Mostrar/Ocultar botón de scroll arriba
+function initScrollTopButton() {
+  const scrollBtn = document.getElementById('scroll-top-btn');
+  if (!scrollBtn) return;
+
+  // Mostrar el botón cuando se hace scroll hacia abajo
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  // Scroll suave al hacer click
+  scrollBtn.addEventListener('click', scrollToTop);
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
