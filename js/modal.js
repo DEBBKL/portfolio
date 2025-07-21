@@ -56,13 +56,21 @@ if (!cvModal || !closeCvBtn) {
       loader.style.display = 'none';
       cvIframe.style.display = 'block';
     };
+    // Fallback para navegadores que no soportan PDF
+    cvIframe.onerror = () => {
+      loader.style.display = 'none';
+      cvIframe.style.display = 'none';
+      const fallback = document.createElement('div');
+      fallback.innerHTML = '<p>Tu navegador no puede mostrar PDFs. <a href="' + cvIframe.src + '" target="_blank">Descárgalo aquí</a>.</p>';
+      cvIframe.parentNode.appendChild(fallback);
+    };
   }
 }
 
 // Función para abrir modal CV
 function openModal(e) {
   if (e) e.preventDefault();
-  
+
   if (!cvModal) return;
 
   lastFocusedElement = document.activeElement;
@@ -70,14 +78,17 @@ function openModal(e) {
   cvModal.style.display = 'flex';
   document.body.classList.add('modal-open');
 
-  // Reiniciar animación para fade-in
   cvModal.classList.remove('fade-out');
-  void cvModal.offsetWidth; // fuerza reflow para reiniciar animación
+  void cvModal.offsetWidth;
   cvModal.classList.add('fade-in');
 
   // Mostrar loader y ocultar iframe hasta que se cargue
   if (loader) loader.style.display = 'block';
-  if (cvIframe) cvIframe.style.display = 'none';
+  if (cvIframe) {
+    cvIframe.style.display = 'none';
+    // Forzar recarga del PDF cada vez que se abre el modal
+    cvIframe.src = cvIframe.src;
+  }
 
   // Focus first focusable element in modal
   const focusable = cvModal.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
@@ -100,15 +111,4 @@ function closeModal() {
   cvModal.classList.remove('fade-in');
   cvModal.classList.add('fade-out');
   cvModal.addEventListener('animationend', onAnimationEnd);
-}
-
-// Fallback for browsers that do not support PDF in iframe
-if (cvIframe) {
-  cvIframe.onerror = () => {
-    loader.style.display = 'none';
-    cvIframe.style.display = 'none';
-    const fallback = document.createElement('div');
-    fallback.innerHTML = '<p>Tu navegador no puede mostrar PDFs. <a href="' + cvIframe.src + '" target="_blank">Descárgalo aquí</a>.</p>';
-    cvIframe.parentNode.appendChild(fallback);
-  };
 }
