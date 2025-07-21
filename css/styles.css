@@ -424,6 +424,12 @@ header h2 {
   color: #54b6db; /* azul clarito */
   text-decoration: none;
   font-family: 'Urbanist', sans-serif;
+  white-space: normal; /* Permite que el título haga wrap */
+  word-break: break-word; /* Rompe palabras largas si es necesario */
+  overflow-wrap: break-word;
+  max-width: 100%;
+  overflow: visible; /* Asegura que no se oculte el texto */
+  display: block; /* Ocupa todo el ancho disponible */
 }
 
 .project-card a:hover,
