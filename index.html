@@ -3,47 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Agregar meta tags faltantes -->
-<meta name="description" content="Déborah Loisel - Analista de Ciberseguridad especializada en vulnerabilidades y seguridad informática">
-<meta name="keywords" content="ciberseguridad, pentesting, blue team, red team">
-<meta property="og:title" content="Portfolio | Déborah Loisel">
-<meta property="og:description" content="Analista de Vulnerabilidades y Seguridad Informática">
+  <meta name="description" content="Déborah Loisel - Analista de Ciberseguridad especializada en vulnerabilidades y seguridad informática">
+  <meta name="keywords" content="ciberseguridad, pentesting, blue team, red team">
+  <meta property="og:title" content="Portfolio | Déborah Loisel">
+  <meta property="og:description" content="Analista de Vulnerabilidades y Seguridad Informática">
   <title>Portfolio | Déborah Loisel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Urbanist:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" href="assets/favicon.png" type="image/png" />
 </head>
 <body>
-
+  <div id="google_translate_element"></div>
+  
   <!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <!-- Logo / Iniciales -->
-    <a href="/" class="logo">DL</a> 
-
-    <!-- Título y rol -->
-    <div class="hero-text">
-      <h1>Déborah Loisel</h1>
-      <p class="role">Analista de Vulnerabilidades y Seguridad Informática</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">DL</a>
+      <div class="hero-text">
+        <h1>Déborah Loisel</h1>
+        <p class="role">Analista de Vulnerabilidades y Seguridad Informática</p>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/DEBBKL" target="_blank" aria-label="GitHub">
+          <img src="assets/github.svg" alt="GitHub" class="social-icon" />
+        </a>
+        <a href="https://linkedin.com/in/deborah-loisel" target="_blank" aria-label="LinkedIn">
+          <img src="assets/linkedin.svg" alt="LinkedIn" class="social-icon" />
+        </a>
+        <a href="mailto:soyderorahloisel@gmail.com" aria-label="Correo electrónico">
+          <img src="assets/gmail.svg" alt="Email" class="social-icon" />
+        </a>
+      </div>
     </div>
+  </header>
 
-    <!-- Botones sociales pequeños -->
-    <div class="social-links">
-  <a href="https://github.com/DEBBKL" target="_blank" aria-label="GitHub">
-    <img src="assets/github.svg" alt="GitHub" class="social-icon" />
-  </a>
-  <a href="https://linkedin.com/in/deborah-loisel" target="_blank" aria-label="LinkedIn">
-    <img src="assets/linkedin.svg" alt="LinkedIn" class="social-icon" />
-  </a>
-  <a href="mailto:soyderorahloisel@gmail.com" aria-label="Correo electrónico">
-    <img src="assets/gmail.svg" alt="Email" class="social-icon" />
-  </a>
-</div>
-</header>
-
-
- <!-- NAVEGACIÓN -->
+  <!-- NAVEGACIÓN -->
   <nav>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menú" type="button">&#9776;</button>
     <ul>
       <li><a href="#about">Sobre mí</a></li>
       <li><a href="#experience">Experiencia</a></li>
@@ -52,78 +48,11 @@
       <li><a href="#projects">Proyectos</a></li>
       <li><a href="#education">Formación</a></li>
       <li><a href="#contact">Contacto</a></li>
-      <li><a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">Currículum</a></li>
-      <li><button class="menu-toggle" aria-expanded="false" aria-label="Menú">&#9776;</button></li>
-      <script>
-// Script integrado para el menú hamburguesa
-document.addEventListener("DOMContentLoaded", function() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navUl = document.querySelector('nav ul');
-  
-  if (!menuToggle || !navUl) return;
-
-  // Evento click en el botón hamburguesa
-  menuToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const isActive = navUl.classList.contains('active');
-    
-    navUl.classList.toggle('active');
-    
-    // Cambiar el ícono y aria-expanded
-    if (!isActive) {
-      menuToggle.innerHTML = '&#10005;'; // ×
-      menuToggle.setAttribute('aria-expanded', 'true');
-    } else {
-      menuToggle.innerHTML = '&#9776;'; // ≡
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Cerrar menú cuando se hace click en un enlace
-  const navLinks = navUl.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      navUl.classList.remove('active');
-      menuToggle.innerHTML = '&#9776;';
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Cerrar menú cuando se hace click fuera
-  document.addEventListener('click', function(e) {
-    if (!navUl.contains(e.target) && !menuToggle.contains(e.target)) {
-      navUl.classList.remove('active');
-      menuToggle.innerHTML = '&#9776;';
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Cerrar menú con tecla Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && navUl.classList.contains('active')) {
-      navUl.classList.remove('active');
-      menuToggle.innerHTML = '&#9776;';
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Manejar redimensionamiento de ventana
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      navUl.classList.remove('active');
-      menuToggle.innerHTML = '&#9776;';
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-});
-</script>
     </ul>
   </nav>
-  
+
   <!-- CONTENIDO PRINCIPAL -->
-   <main class="container">
+  <main class="container">
     <section id="about">
       <h2>Sobre mí</h2>
       <p>
@@ -400,248 +329,63 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </section>
 
-    <section id="contact">
-  <h2>Contacto</h2>
-  <ul class="contact-list">
-    <li>
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1.2l-10 6.25L2 5.2V4zm0 3.8v12.2a2 2 0 002 2h16a2 2 0 002-2V7.8l-10 6.25L2 7.8z"/>
-      </svg>
-      <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a>
-    </li>
-    <li>
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zm-9 19H7V9h3v10zm-1.5-11.2c-1 0-1.7-.7-1.7-1.6s.7-1.6 1.7-1.6c1 0 1.7.7 1.7 1.6 0 .9-.7 1.6-1.7 1.6zm11.5 11.2h-3v-5.5c0-1.3-.5-2.2-1.6-2.2-1 0-1.5.7-1.7 1.4-.1.2-.1.5-.1.8V19h-3V9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.2V19z"/>
-      </svg>
-      <a href="https://linkedin.com/in/deborah-loisel" target="_blank" rel="noopener noreferrer">linkedin.com/in/deborah-loisel</a>
-    </li>
-    <li>
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.42 7.86 10.96.58.11.79-.25.79-.55v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.35-1.3-1.71-1.3-1.71-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.74 1.26 3.41.97.1-.75.4-1.26.72-1.55-2.56-.3-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.51.12-3.16 0 0 .97-.31 3.18 1.18a10.85 10.85 0 012.9-.4c.99.01 1.98.14 2.9.4 2.2-1.5 3.18-1.18 3.18-1.18.64 1.65.25 2.86.12 3.16.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.7.42.37.78 1.11.78 2.24v3.32c0 .3.2.66.79.55A10.51 10.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
+  <!-- CONTACTO -->
+  <section id="contact">
+    <h2>Contacto</h2>
+    <ul class="contact-list">
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v1.2l-10 6.25L2 5.2V4zm0 3.8v12.2a2 2 0 002 2h16a2 2 0 002-2V7.8l-10 6.25L2 7.8z"/>
+        </svg>
+        <a href="mailto:soydeborahloisel@gmail.com">soydeborahloisel@gmail.com</a>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zm-9 19H7V9h3v10zm-1.5-11.2c-1 0-1.7-.7-1.7-1.6s.7-1.6 1.7-1.6c1 0 1.7.7 1.7 1.6 0 .9-.7 1.6-1.7 1.6zm11.5 11.2h-3v-5.5c0-1.3-.5-2.2-1.6-2.2-1 0-1.5.7-1.7 1.4-.1.2-.1.5-.1.8V19h-3V9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.2V19z"/>
+        </svg>
+        <a href="https://linkedin.com/in/deborah-loisel" target="_blank" rel="noopener noreferrer">linkedin.com/in/deborah-loisel</a>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.42 7.86 10.96.58.11.79-.25.79-.55v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.35-1.3-1.71-1.3-1.71-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.74 1.26 3.41.97.1-.75.4-1.26.72-1.55-2.56-.3-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.51.12-3.16 0 0 .97-.31 3.18 1.18a10.85 10.85 0 012.9-.4c.99.01 1.98.14 2.9.4 2.2-1.5 3.18-1.18 3.18-1.18.64 1.65.25 2.86.12 3.16.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.7.42.37.78 1.11.78 2.24v3.32c0 .3.2.66.79.55A10.51 10.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
       </svg>
       <a href="https://github.com/DEBBKL" target="_blank">github.com/DEBBKL</a>
     </li>
-  </ul>
-</section>
+    </ul>
+  </section>
 
-   <!-- BOTÓN PARA ABRIR MODAL DEL CV -->
- <a href="#" id="open-cv" class="btn btn-cv">Ver Currículum</a>
+  <!-- BOTÓN PARA ABRIR MODAL DEL CV -->
+  <a href="#" id="open-cv" class="btn btn-cv">Ver Currículum</a>
 
-<!-- MODAL DEL CURRÍCULUM -->
-<div class="modal" id="cv-modal">
-  <div class="modal-content">
-    <span class="close-btn" id="close-cv">&times;</span>
-    <h2>Currículum Vitae</h2>
-
-    <!-- Loader mientras se carga el PDF -->
-    <div id="cv-loader" class="loader"></div>
-
-    <!-- Iframe del CV -->
-    <iframe
-      id="cv-iframe"
-      src="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf"
-      width="100%"
-      height="600px"
-      style="border: none; display: none;"
-    >
-      <p>Tu navegador no puede mostrar PDFs.
-        <a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">Descárgalo aquí</a>.
-      </p>
-    </iframe>
+  <!-- MODAL DEL CURRÍCULUM -->
+  <div class="modal" id="cv-modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-cv">&times;</span>
+      <h2>Currículum Vitae</h2>
+      <div id="cv-loader" class="loader"></div>
+      <iframe
+        id="cv-iframe"
+        src="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf"
+        width="100%"
+        height="600px"
+        style="border: none; display: none;"
+      >
+        <p>Tu navegador no puede mostrar PDFs.
+          <a href="assets/CV%20IT%20JUL%202025%20-%20DEBORAH%20LOISEL.pdf" target="_blank">Descárgalo aquí</a>.
+        </p>
+      </iframe>
+    </div>
   </div>
-</div>
-         
-     <!-- GOOGLE TRANSLATE -->
-  <div id="google_translate_element"></div>
 
-<script>
-  // Elementos DOM para modal CV
-  const openCvBtn  = document.getElementById('open-cv');
-  const openCvLink = document.getElementById('open-cv-link');
-  const closeCvBtn = document.getElementById('close-cv');
-  const cvModal    = document.getElementById('cv-modal');
-  const cvIframe   = document.getElementById('cv-iframe');
-  const loader     = document.getElementById('cv-loader');
-
-  // Añadir eventos para abrir/cerrar modal
-  if (openCvBtn) openCvBtn.addEventListener('click', openModal);
-  if (openCvLink) openCvLink.addEventListener('click', openModal);
-  if (closeCvBtn) closeCvBtn.addEventListener('click', closeModal);
-
-  // Cerrar modal con tecla ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && cvModal.style.display === 'flex') {
-      closeModal();
-    }
-  });
-
-  // Cerrar modal clicando fuera del contenido (fondo)
-  if (cvModal) {
-    cvModal.addEventListener('click', (e) => {
-      if (e.target === cvModal) {
-        closeModal();
-      }
-    });
-  }
-
-  // Cuando se carga el iframe del CV, ocultar loader y mostrar iframe
-  if (cvIframe) {
-    cvIframe.onload = () => {
-      loader.style.display = 'none';
-      cvIframe.style.display = 'block';
-    };
-  }
-
-  // Función para abrir modal CV
-  function openModal(e) {
-    if (e) e.preventDefault();
-
-    cvModal.style.display = 'flex';
-    document.body.classList.add('modal-open');
-
-    // Reiniciar animación para fade-in
-    cvModal.classList.remove('fade-out');
-    void cvModal.offsetWidth; // fuerza reflow para reiniciar animación
-    cvModal.classList.add('fade-in');
-
-    // Mostrar loader y ocultar iframe hasta que se cargue
-    loader.style.display = 'block';
-    cvIframe.style.display = 'none';
-  }
-
-  // Función para cerrar modal CV con animación fade-out
-  function closeModal() {
-    cvModal.classList.remove('fade-in');
-    cvModal.classList.add('fade-out');
-
-    // Al terminar la animación, ocultar modal y limpiar clases
-    cvModal.addEventListener('animationend', function handler() {
-      cvModal.style.display = 'none';
-      document.body.classList.remove('modal-open');
-      cvModal.removeEventListener('animationend', handler);
-    });
-  }
-
-  // Función para cargar repositorios públicos desde GitHub y mostrarlos
-  async function loadGitHubRepos() {
-    const container = document.getElementById('projects-container');
-    if (!container) return;
-
-    container.innerHTML = '';
-
-    const filter = document.getElementById('filter')?.value || 'newest';
-
-    try {
-      const response = await fetch('https://api.github.com/users/DEBBKL/repos');
-      if (!response.ok) throw new Error('No se pudo obtener los repositorios.');
-
-      let repos = await response.json();
-
-      // Filtrar repos que no son forks ni privados
-      repos = repos.filter(repo => !repo.fork && !repo.private);
-
-      // Ordenar según filtro seleccionado
-      repos.sort((a, b) => {
-        switch(filter) {
-          case 'newest':
-            return new Date(b.created_at) - new Date(a.created_at);
-          case 'oldest':
-            return new Date(a.created_at) - new Date(b.created_at);
-          case 'az':
-            return a.name.localeCompare(b.name);
-          case 'za':
-            return b.name.localeCompare(a.name);
-          default:
-            return 0;
-        }
-      });
-
-      if (repos.length === 0) {
-        container.innerHTML = '<p>No hay proyectos públicos disponibles.</p>';
-        return;
-      }
-
-      // Crear y añadir tarjetas para cada repositorio
-      repos.forEach(repo => {
-        const card = document.createElement('div');
-        card.classList.add('project-card');
-
-        // Asigna data-tech si tienes tecnología, aquí lo dejo vacío (puedes añadir según tu lógica)
-        // card.setAttribute('data-tech', 'javascript,css'); 
-
-        card.innerHTML = `
-          <h3>${repo.name}</h3>
-          <p>${repo.description || 'Sin descripción.'}</p>
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
-        `;
-
-        container.appendChild(card);
-      });
-    } catch (error) {
-      container.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
-      console.error(error);
-    }
-  }
-
-  // Cargar repositorios al cargar la página
-  document.addEventListener("DOMContentLoaded", loadGitHubRepos);
-</script>
-
-<script>
-  function filterProjects() {
-    const filter = document.getElementById("techFilter")?.value || 'all';
-    const cards = document.querySelectorAll(".project-card");
-
-    cards.forEach(card => {
-      const techs = card.getAttribute("data-tech") || "";
-      if (filter === "all" || techs.includes(filter)) {
-        card.style.display = "flex";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  }
-
-  // Puedes añadir aquí un event listener para que se ejecute al cambiar el select
-  const techFilterSelect = document.getElementById('techFilter');
-  if (techFilterSelect) {
-    techFilterSelect.addEventListener('change', filterProjects);
-  }
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".timeline-item");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    items.forEach(item => observer.observe(item));
-  });
-</script>
-
-<script>
-    const toggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
-
-<!-- Remove all the inline JavaScript from the HTML -->
-<!-- Keep only these script tags at the end of body: -->
-<script src="js/modal.js" defer></script>
-<script src="js/scripts.js" defer></script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-         
-</body>
-   <footer>
+  <!-- FOOTER -->
+  <footer>
     <p>© 2025 Déborah Loisel. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/modal.js" defer></script>
+  <script src="js/scripts.js" defer></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
 </html>

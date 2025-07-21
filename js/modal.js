@@ -7,6 +7,8 @@ const cvModal = document.getElementById('cv-modal');
 const cvIframe = document.getElementById('cv-iframe');
 const loader = document.getElementById('cv-loader');
 
+let lastFocusedElement = null;
+
 // Verificar que existen los elementos necesarios
 if (!cvModal || !closeCvBtn) {
   console.warn('Modal CV elements not found');
@@ -20,6 +22,24 @@ if (!cvModal || !closeCvBtn) {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && cvModal.style.display === 'flex') {
       closeModal();
+    }
+    // Focus trap
+    if (cvModal.style.display === 'flex' && e.key === 'Tab') {
+      const focusable = cvModal.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     }
   });
 
@@ -45,6 +65,8 @@ function openModal(e) {
   
   if (!cvModal) return;
 
+  lastFocusedElement = document.activeElement;
+
   cvModal.style.display = 'flex';
   document.body.classList.add('modal-open');
 
@@ -56,6 +78,10 @@ function openModal(e) {
   // Mostrar loader y ocultar iframe hasta que se cargue
   if (loader) loader.style.display = 'block';
   if (cvIframe) cvIframe.style.display = 'none';
+
+  // Focus first focusable element in modal
+  const focusable = cvModal.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
+  if (focusable.length) focusable[0].focus();
 }
 
 // Función para cerrar modal CV con animación fade-out
@@ -67,9 +93,22 @@ function closeModal() {
     document.body.classList.remove('modal-open');
     cvModal.classList.remove('fade-out');
     cvModal.removeEventListener('animationend', onAnimationEnd);
+    // Return focus to the button that opened the modal
+    if (lastFocusedElement) lastFocusedElement.focus();
   }
 
   cvModal.classList.remove('fade-in');
   cvModal.classList.add('fade-out');
   cvModal.addEventListener('animationend', onAnimationEnd);
+}
+
+// Fallback for browsers that do not support PDF in iframe
+if (cvIframe) {
+  cvIframe.onerror = () => {
+    loader.style.display = 'none';
+    cvIframe.style.display = 'none';
+    const fallback = document.createElement('div');
+    fallback.innerHTML = '<p>Tu navegador no puede mostrar PDFs. <a href="' + cvIframe.src + '" target="_blank">Descárgalo aquí</a>.</p>';
+    cvIframe.parentNode.appendChild(fallback);
+  };
 }
