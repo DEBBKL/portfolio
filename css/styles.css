@@ -1172,3 +1172,17 @@ nav ul li a:focus-visible {
     font-size: 1.5rem;
   }
 }
+
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text .role {
+    font-size: 0.9rem;
+  }
+
+  .hero-text {
+    padding: 0 1rem;
+  }
+}
