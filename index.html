@@ -10,7 +10,9 @@
   <title>Portfolio | Déborah Loisel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Urbanist:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="assets/favicon.png" type="image/png" />
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="assets/favicon.png" />
+<meta name="theme-color" content="#2097bd" />
 </head>
 <body>
   <div id="google_translate_element"></div>
@@ -195,96 +197,144 @@
   <div class="projects-grid">
 
     <div class="project-card" data-tech="vpn windows">
-      <a href="https://github.com/DEBBKL/vpn-ssh-configuracion-caso-practico" target="_blank">VPN + SSH: Configuración caso práctico</a>
-      <p class="project-description">Configuración segura de VPN con SoftEther y SSH reforzado en Kali Linux.</p>
-      <div class="project-meta">
-        <span>Última actualización: jul 2025</span>
-        <span>Tecnologías: VPN, SSH, Linux</span>
-        <a href="https://github.com/DEBBKL/vpn-ssh-configuracion-caso-practico" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
-
-  <div class="project-card" data-tech="forense autopsy">
-  <a href="https://github.com/DEBBKL/Auditoria-Forense" target="_blank">Auditoría Forense Digital con Autopsy</a>
-  <p class="project-description">Análisis de una imagen forense con búsqueda de evidencias, metadatos y frase oculta usando Autopsy.</p>
+  <img src="assets/proyectos/caso-practico-vpn-ssh.PNG" alt="VPN y SSH" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/vpn-ssh-configuracion-caso-practico" target="_blank">
+    VPN + SSH: Configuración caso práctico
+  </a>
+  <p class="project-description">
+    Configuración segura de VPN con SoftEther y refuerzo de acceso SSH en Kali Linux para conexiones remotas cifradas.
+  </p>
   <div class="project-meta">
     <span>Última actualización: jul 2025</span>
-    <span>Tecnologías: Forense Digital, Autopsy, Linux</span>
+    <span>Tecnologías: VPN, SSH, Linux</span>
+    <a href="https://github.com/DEBBKL/vpn-ssh-configuracion-caso-practico" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
+
+
+  <div class="project-card" data-tech="forense">
+  <img src="assets/proyectos/Auditoria-Forense.PNG" alt="Auditoría Forense" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/Auditoria-Forense" target="_blank">
+    Auditoría Forense en sistemas comprometidos
+  </a>
+  <p class="project-description">
+    Análisis de evidencias digitales en Windows usando Volatility, FTK Imager y herramientas de análisis de memoria.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: Windows, Volatility, Forense</span>
     <a href="https://github.com/DEBBKL/Auditoria-Forense" target="_blank" class="btn-ver-mas">Ver más</a>
   </div>
 </div>
     
-    <div class="project-card" data-tech="blue-team">
-      <a href="https://github.com/DEBBKL/blue-team-lab" target="_blank">Blue Team Lab</a>
-      <p class="project-description">Laboratorio práctico con Snort, Sysmon y Wazuh para detección y análisis.</p>
-      <div class="project-meta">
-        <span>Última actualización: jul 2025</span>
-        <span>Tecnologías: Snort, Sysmon, Wazuh</span>
-        <a href="https://github.com/DEBBKL/blue-team-lab" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
+   <div class="project-card" data-tech="blue team">
+  <img src="assets/proyectos/blue-team-lab.PNG" alt="Blue Team Lab" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/blue-team-lab" target="_blank">
+    Laboratorio Blue Team casero
+  </a>
+  <p class="project-description">
+    Implementación de un entorno SOC con Wazuh, Snort, y simulaciones para detección de amenazas en red.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: SIEM, Wazuh, Snort</span>
+    <a href="https://github.com/DEBBKL/blue-team-lab" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
 
-    <div class="project-card" data-tech="ransomware blue-team">
-      <a href="https://github.com/DEBBKL/powerbyte-ransomware-investigation" target="_blank">PowerByte Ransomware Investigation</a>
-      <p class="project-description">Investigación de ransomware simulado, IOC y respuesta a incidentes.</p>
-      <div class="project-meta">
-        <span>Última actualización: jun 2025</span>
-        <span>Tecnologías: Volatility, IOC, Windows Logs</span>
-        <a href="https://github.com/DEBBKL/powerbyte-ransomware-investigation" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
+    <div class="project-card" data-tech="malware ransomware">
+  <img src="assets/proyectos/powerbyte-ransomware-investigation.PNG" alt="PowerByte" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/powerbyte-ransomware-investigation" target="_blank">
+    PowerByte: Investigación de Ransomware
+  </a>
+  <p class="project-description">
+    Análisis forense del ransomware PowerByte con estudio de comportamiento, cifrado y técnicas de mitigación.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: Sandbox, Malware Analysis, Volatility</span>
+    <a href="https://github.com/DEBBKL/powerbyte-ransomware-investigation" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
 
-    <div class="project-card" data-tech="osint blue-team">
-      <a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank">X-OSINT en Kali para Blue Team</a>
-      <p class="project-description">Instalación y solución de errores en X-OSINT para análisis de inteligencia.</p>
-      <div class="project-meta">
-        <span>Última actualización: jun 2025</span>
-        <span>Tecnologías: OSINT, Python, Kali Linux</span>
-        <a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
+   <div class="project-card" data-tech="osint">
+  <img src="assets/proyectos/xosint-kali-blue-team.PNG" alt="X-OSINT en Kali" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank">
+    X-OSINT en Kali Linux
+  </a>
+  <p class="project-description">
+    Instalación y documentación de X-OSINT en entornos virtuales. Resolución de errores con Python y espacio en disco.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: OSINT, Python, Blue Team</span>
+    <a href="https://github.com/DEBBKL/xosint-kali-blue-team" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
 
-    <div class="project-card" data-tech="reversing malware">
-      <a href="https://github.com/DEBBKL/radare2-malware-analysis" target="_blank">Análisis de Malware con Radare2</a>
-      <p class="project-description">Reversing básico con Radare2, funciones maliciosas y estructura del binario.</p>
-      <div class="project-meta">
-        <span>Última actualización: may 2025</span>
-        <span>Tecnologías: Radare2, Assembly</span>
-        <a href="https://github.com/DEBBKL/radare2-malware-analysis" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
 
-    <div class="project-card" data-tech="windows">
-      <a href="https://github.com/DEBBKL/Gestion-de-Acceso-Seguro-Windows-Server" target="_blank">Gestión de Acceso Seguro en Windows Server</a>
-      <p class="project-description">Active Directory, GPOs, permisos NTFS y políticas seguras de contraseñas.</p>
-      <div class="project-meta">
-        <span>Última actualización: jul 2025</span>
-        <span>Tecnologías: Windows Server, GPO, NTFS</span>
-        <a href="https://github.com/DEBBKL/Gestion-de-Acceso-Seguro-Windows-Server" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
+   <div class="project-card" data-tech="reverse malware">
+  <img src="assets/proyectos/radare2-malware-analysis.PNG" alt="Reversing con Radare2" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/reversing-malware" target="_blank">
+    Reverse Engineering de Malware con Radare2
+  </a>
+  <p class="project-description">
+    Análisis estático y dinámico de ejecutables maliciosos usando Radare2 y técnicas de ingeniería inversa.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: Radare2, Ghidra, Malware</span>
+    <a href="https://github.com/DEBBKL/reversing-malware" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
 
-    <div class="project-card" data-tech="forense">
-      <a href="https://github.com/DEBBKL/MBR-and-GPT-Analysis" target="_blank">Análisis de MBR y GPT</a>
-      <p class="project-description">Comparativa forense entre MBR y GPT mediante análisis hexadecimal.</p>
-      <div class="project-meta">
-        <span>Última actualización: abr 2025</span>
-        <span>Tecnologías: Análisis Forense, Particiones</span>
-        <a href="https://github.com/DEBBKL/MBR-and-GPT-Analysis" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
+
+   <div class="project-card" data-tech="windows server">
+  <img src="assets/proyectos/Gestion-de-Acceso-Seguro-Windows-Server.PNG" alt="Windows Server" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/Gestion-de-Acceso-Seguro-Windows-Server" target="_blank">
+    Gestión de Acceso en Windows Server
+  </a>
+  <p class="project-description">
+    Control de acceso, Active Directory, GPOs y permisos NTFS en entornos empresariales.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: Windows Server, AD, GPO</span>
+    <a href="https://github.com/DEBBKL/Gestion-de-Acceso-Seguro-Windows-Server" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
+
+
+    <div class="project-card" data-tech="forense disco">
+  <img src="assets/proyectos/MBR-and-GPT-Analysis.PNG" alt="MBR y GPT" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/MBR-and-GPT-Analysis" target="_blank">
+    Análisis de MBR y GPT
+  </a>
+  <p class="project-description">
+    Comparativa de estructuras MBR y GPT. Análisis de arranque y recuperación de discos para investigación forense.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: MBR, GPT, Forense</span>
+    <a href="https://github.com/DEBBKL/MBR-and-GPT-Analysis" target="_blank" class="btn-ver-mas">Ver más</a>
+  </div>
+</div>
+
 
     <div class="project-card" data-tech="pentesting osint">
-      <a href="https://github.com/DEBBKL/Pentesting" target="_blank">Pentesting Essentials</a>
-      <p class="project-description">Fundamentos de pruebas de penetración con metodología OWASP.</p>
-      <div class="project-meta">
-        <span>Última actualización: mar 2025</span>
-        <span>Tecnologías: Nmap, ZAP, Burp Suite</span>
-        <a href="https://github.com/DEBBKL/Pentesting" target="_blank" class="btn-ver-mas">Ver más</a>
-      </div>
-    </div>
-
+  <img src="assets/proyectos/Pentesting.PNG" alt="Pentesting OSINT" class="project-thumbnail" />
+  <a href="https://github.com/DEBBKL/pentesting-osint" target="_blank">
+    Pentesting con enfoque OSINT
+  </a>
+  <p class="project-description">
+    Recolección pasiva y análisis de huellas digitales para pentesting. Enumeración, fingerprinting y técnicas OSINT.
+  </p>
+  <div class="project-meta">
+    <span>Última actualización: jul 2025</span>
+    <span>Tecnologías: OSINT, Pentesting, Recon</span>
+    <a href="https://github.com/DEBBKL/pentesting-osint" target="_blank" class="btn-ver-mas">Ver más</a>
   </div>
+</div>
 </section>
 
   <section id="education" class="timeline-section">
