@@ -63,6 +63,12 @@ header .hero {
   color: var(--white);
 }
 
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
 /* NAVEGACIÓN */
 nav {
   background: var(--black);
