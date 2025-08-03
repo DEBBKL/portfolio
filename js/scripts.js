@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   initHamburgerMenu();
   initProjectFilters();
   initScrollTopButton();
+  initAnimatedLogo();
 });
 
 // Animaciones para la sección de timeline (formación)
@@ -181,4 +182,67 @@ function initScrollTopButton() {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Interactividad para el logo animado tipo escudo
+function initAnimatedLogo() {
+  const container = document.querySelector('.logo-animado');
+  const logo = container?.querySelector('.shield-logo');
+  if (!container || !logo) return;
+
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const rotateX = (y / rect.height) * 30;
+    const rotateY = (x / rect.width) * 30;
+    logo.style.transform = `scale(1.1) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    logo.style.transform = 'scale(1) rotateX(0deg) rotateY(0deg)';
+  });
+
+  container.addEventListener('click', () => {
+    container.classList.add('shield-shine');
+    logo.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+    logo.style.transform = 'scale(1.3) rotateZ(720deg) rotateY(360deg)';
+
+    const burst = document.createElement('div');
+    burst.style.cssText = `
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      border: 3px solid rgba(30, 144, 255, 0.8);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+      animation: burstEffect 0.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 5;
+    `;
+
+    if (!document.querySelector('#burstStyle')) {
+      const style = document.createElement('style');
+      style.id = 'burstStyle';
+      style.textContent = `
+        @keyframes burstEffect {
+          0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+          100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    container.appendChild(burst);
+
+    setTimeout(() => {
+      logo.style.transform = 'scale(1)';
+      logo.style.transition = 'all 0.6s ease';
+      burst.remove();
+      setTimeout(() => container.classList.remove('shield-shine'), 1000);
+    }, 800);
+  });
 }
