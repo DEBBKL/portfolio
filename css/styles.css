@@ -1354,4 +1354,41 @@ nav ul li a:focus-visible {
 @keyframes sparkle1 {
   0%, 100% { opacity: 0; transform: translateY(0px) scale(0.3) rotate(0deg); }
   50% { opacity: 1 }
-}    
+}
+
+/* Cabecera con logo + título alineados */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #0a0a0a;
+  z-index: 100;
+}
+
+.small-logo {
+  width: 50px;
+  height: 65px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.site-title {
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .small-logo {
+    width: 40px;
+    height: 52px;
+  }
+
+  .site-title {
+    font-size: 1.4rem;
+  }
+}
