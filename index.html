@@ -20,7 +20,8 @@
   
   <!-- HEADER -->
   <header class="site-header">
-    <div class="logo-container">
+    <header class="site-header">
+  <div class="logo-container">
     <div class="halo"></div>
     <div class="pulse-ring pulse-ring-1"></div>
     <div class="pulse-ring pulse-ring-2"></div>
@@ -35,44 +36,44 @@
     <svg class="shield-logo" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="enhancedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#5aa3f0"/>
-            <stop offset="25%" style="stop-color:#4facfe"/>
-            <stop offset="50%" style="stop-color:#1e90ff"/>
-            <stop offset="75%" style="stop-color:#0066cc"/>
-            <stop offset="100%" style="stop-color:#003d7a"/>
+          <stop offset="0%" style="stop-color:#5aa3f0"/>
+          <stop offset="25%" style="stop-color:#4facfe"/>
+          <stop offset="50%" style="stop-color:#1e90ff"/>
+          <stop offset="75%" style="stop-color:#0066cc"/>
+          <stop offset="100%" style="stop-color:#003d7a"/>
         </linearGradient>
         <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#87ceeb"/>
-            <stop offset="50%" style="stop-color:#1e90ff"/>
-            <stop offset="100%" style="stop-color:#4169e1"/>
+          <stop offset="0%" style="stop-color:#87ceeb"/>
+          <stop offset="50%" style="stop-color:#1e90ff"/>
+          <stop offset="100%" style="stop-color:#4169e1"/>
         </linearGradient>
         <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#ffffff"/>
-            <stop offset="50%" style="stop-color:#f0f8ff"/>
-            <stop offset="100%" style="stop-color:#e6f3ff"/>
+          <stop offset="0%" style="stop-color:#ffffff"/>
+          <stop offset="50%" style="stop-color:#f0f8ff"/>
+          <stop offset="100%" style="stop-color:#e6f3ff"/>
         </linearGradient>
         <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
         <filter id="superGlowFilter" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-            <feGaussianBlur stdDeviation="15" result="bigBlur"/>
-            <feMerge>
-                <feMergeNode in="bigBlur"/>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
+          <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="15" result="bigBlur"/>
+          <feMerge>
+              <feMergeNode in="bigBlur"/>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
         <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="textBlur"/>
-            <feMerge>
-                <feMergeNode in="textBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
+          <feGaussianBlur stdDeviation="2" result="textBlur"/>
+          <feMerge>
+              <feMergeNode in="textBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
 
@@ -144,23 +145,22 @@
     <div class="shine-overlay-1"></div>
     <div class="shine-overlay-2"></div>
   </div>
-        <div class="hero-text">
-          <h1>Déborah Loisel</h1>
-          <p class="role">Analista de Vulnerabilidades y Seguridad Informática</p>
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/DEBBKL" target="_blank" aria-label="GitHub">
-            <img src="assets/github.svg" alt="GitHub" class="social-icon" />
-          </a>
-          <a href="https://linkedin.com/in/deborah-loisel" target="_blank" aria-label="LinkedIn">
-            <img src="assets/linkedin.svg" alt="LinkedIn" class="social-icon" />
-          </a>
-          <a href="mailto:soyderorahloisel@gmail.com" aria-label="Correo electrónico">
-            <img src="assets/gmail.svg" alt="Email" class="social-icon" />
-          </a>
-        </div>
-      </div>
-  </header>
+  <div class="header-content">
+    <h1>Déborah Loisel</h1>
+    <p class="role">Analista de Vulnerabilidades y Seguridad Informática</p>
+    <div class="social-links">
+      <a href="https://github.com/DEBBKL" target="_blank" aria-label="GitHub">
+        <img src="assets/github.svg" alt="GitHub" class="social-icon" />
+      </a>
+      <a href="https://linkedin.com/in/deborah-loisel" target="_blank" aria-label="LinkedIn">
+        <img src="assets/linkedin.svg" alt="LinkedIn" class="social-icon" />
+      </a>
+      <a href="mailto:soyderorahloisel@gmail.com" aria-label="Correo electrónico">
+        <img src="assets/gmail.svg" alt="Email" class="social-icon" />
+      </a>
+    </div>
+  </div>
+</header>
 
   <!-- NAVEGACIÓN -->
   <nav>
